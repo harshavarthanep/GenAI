@@ -1,0 +1,151 @@
+## c-global | globe | Where to work: AI jobs worldwide | Countries ranked by AI demand, safety, job security and visa access
+NOTE: Scores (0–10) are this course's editorial estimates, built from public 2026 data: the Global Peace Index 2026 for safety, LinkedIn and Stanford AI Index 2026 hiring signals for demand, labour-protection norms for job security, and official visa routes for access. Move the sliders to rank by what matters most to you. Visa rules change often: always confirm on the official link before applying.
+COUNTRY: Ireland ;; IE ;; Dublin, Cork ;; 8 ;; 10 ;; 8 ;; 8 ;; 5 ;; English ;; Critical Skills Employment Permit ;; https://enterprise.gov.ie/en/what-we-do/workplace-and-skills/employment-permits/ ;; IrishJobs=https://www.irishjobs.ie, Jobs.ie=https://www.jobs.ie, LinkedIn=https://www.linkedin.com/jobs ;; European HQs of many global tech and AI companies; English-speaking EU country; GPI 2026 rank 5.
+COUNTRY: Singapore ;; SG ;; Singapore ;; 9 ;; 10 ;; 7 ;; 7 ;; 8 ;; English ;; Employment Pass (COMPASS points) ;; https://www.mom.gov.sg/passes-and-permits/employment-pass ;; MyCareersFuture=https://www.mycareersfuture.gov.sg, JobStreet=https://sg.jobstreet.com, LinkedIn=https://www.linkedin.com/jobs ;; AI engineer and head of AI were among the fastest-growing roles on LinkedIn Jobs on the Rise 2026; Asia-Pacific HQ hub; GPI 2026 rank 8. Pass is tied to your employer.
+COUNTRY: Germany ;; DE ;; Berlin, Munich, Hamburg ;; 8 ;; 8 ;; 9 ;; 8 ;; ;; English in tech, German helps ;; EU Blue Card, Opportunity Card (job search) ;; https://www.make-it-in-germany.com/en/visa-residence ;; StepStone=https://www.stepstone.de, Federal Job Exchange=https://www.arbeitsagentur.de/jobsuche/, LinkedIn=https://www.linkedin.com/jobs ;; Strong dismissal protection and social security; large industrial AI demand (automotive, manufacturing).
+COUNTRY: Netherlands ;; NL ;; Amsterdam, Eindhoven, Rotterdam ;; 8 ;; 8 ;; 9 ;; 8 ;; ;; English ;; Highly Skilled Migrant permit (recognised sponsor) ;; https://ind.nl/en/residence-permits/work/highly-skilled-migrant ;; Indeed NL=https://nl.indeed.com, LinkedIn=https://www.linkedin.com/jobs ;; Very English-friendly workplaces; strong employee protections; semiconductor and fintech AI demand.
+COUNTRY: United Arab Emirates (Dubai, Abu Dhabi) ;; AE ;; Dubai, Abu Dhabi ;; 9 ;; 8 ;; 5 ;; 9 ;; ;; English ;; Employer-sponsored work visa; Golden Visa for eligible talent ;; https://u.ae/en/information-and-services/visa-and-emirates-id ;; Bayt=https://www.bayt.com, GulfTalent=https://www.gulftalent.com, NaukriGulf=https://www.naukrigulf.com ;; Stanford AI Index 2026 ranked the UAE 2nd globally for net AI talent migration; no personal income tax. Residence usually tied to your job, so job security is lower.
+COUNTRY: Japan ;; JP ;; Tokyo, Osaka, Fukuoka ;; 7 ;; 9 ;; 9 ;; 7 ;; 10 ;; Japanese often needed outside global firms ;; Engineer visa, Highly Skilled Professional (points) ;; https://www.moj.go.jp/isa/ ;; TokyoDev=https://www.tokyodev.com, Japan Dev=https://japan-dev.com, Daijob=https://www.daijob.com ;; Very stable employment culture; GPI 2026 rank 10; robotics and manufacturing AI.
+COUNTRY: Nordics (Finland, Denmark, Sweden) ;; NORD ;; Helsinki, Copenhagen, Stockholm ;; 7 ;; 9 ;; 9 ;; 7 ;; 9 ;; English ;; National work permits / EU Blue Card ;; https://www.workinfinland.com ;; Work in Finland=https://www.workinfinland.com, Jobindex (DK)=https://www.jobindex.dk, The Hub=https://thehub.io ;; Excellent work-life balance and safety nets; Finland is GPI 2026 rank 9; smaller job markets.
+COUNTRY: Switzerland ;; CH ;; Zurich, Geneva, Lausanne ;; 8 ;; 10 ;; 8 ;; 4 ;; 3 ;; English in tech, German/French help ;; Non-EU permits under annual quotas ;; https://www.sem.admin.ch/sem/en/home.html ;; jobs.ch=https://www.jobs.ch, LinkedIn=https://www.linkedin.com/jobs ;; Among the highest tech salaries in the world; GPI 2026 rank 3; very hard for non-EU juniors.
+COUNTRY: India ;; IN ;; Bengaluru, Hyderabad, Chennai, Pune, Gurugram ;; 10 ;; 4 ;; 6 ;; 10 ;; 127 ;; English ;; Home market for Indian citizens ;; https://www.naukri.com ;; Naukri=https://www.naukri.com, Instahyre=https://www.instahyre.com, Cutshort=https://cutshort.io ;; LinkedIn (April 2026) reported India's AI engineering hiring up 59.5% year on year, the highest in the world; huge Global Capability Centre demand. Visa score assumes an Indian passport.
+COUNTRY: United Kingdom ;; GB ;; London, Cambridge, Manchester, Edinburgh ;; 9 ;; 7 ;; 7 ;; 6 ;; ;; English ;; Skilled Worker visa, Global Talent visa ;; https://www.gov.uk/browse/visas-immigration/work-visas ;; Find a job=https://findajob.dwp.gov.uk, Reed=https://www.reed.co.uk, LinkedIn=https://www.linkedin.com/jobs ;; Europe's largest AI ecosystem; visa fees and health surcharge add real cost.
+COUNTRY: Australia ;; AU ;; Sydney, Melbourne, Brisbane ;; 7 ;; 8 ;; 8 ;; 7 ;; 20 ;; English ;; Skills in Demand visa, skilled independent visas ;; https://immi.homeaffairs.gov.au ;; SEEK=https://www.seek.com.au, Workforce Australia=https://www.workforceaustralia.gov.au ;; High quality of life and strong worker rights; GPI 2026 rank 20.
+COUNTRY: Canada ;; CA ;; Toronto, Montreal, Vancouver ;; 8 ;; 7 ;; 7 ;; 7 ;; ;; English, French in Quebec ;; Express Entry (points), employer work permits ;; https://www.canada.ca/en/immigration-refugees-citizenship.html ;; Job Bank=https://www.jobbank.gc.ca, Indeed CA=https://ca.indeed.com ;; World-class AI research (Toronto, Montreal); permanent residence pathways; job market has been tighter recently.
+COUNTRY: New Zealand ;; NZ ;; Auckland, Wellington ;; 5 ;; 10 ;; 8 ;; 7 ;; 2 ;; English ;; Accredited Employer Work Visa ;; https://www.immigration.govt.nz ;; SEEK NZ=https://www.seek.co.nz, Trade Me Jobs=https://www.trademe.co.nz/a/jobs ;; GPI 2026 rank 2, excellent lifestyle; smaller AI job market.
+COUNTRY: Qatar ;; QA ;; Doha ;; 6 ;; 8 ;; 5 ;; 8 ;; ;; English ;; Employer-sponsored work visa ;; https://portal.moi.gov.qa ;; Bayt=https://www.bayt.com, GulfTalent=https://www.gulftalent.com ;; Tax-free salaries and high safety; small market; residence tied to employer.
+COUNTRY: Saudi Arabia ;; SA ;; Riyadh, Jeddah, NEOM ;; 7 ;; 6 ;; 5 ;; 8 ;; ;; English at work ;; Employer-sponsored work visa, Premium Residency ;; https://visa.mofa.gov.sa ;; Bayt=https://www.bayt.com, GulfTalent=https://www.gulftalent.com ;; Large national AI investment programmes; tax-free salaries; residence tied to employer.
+COUNTRY: United States ;; US ;; San Francisco Bay Area, Seattle, New York, Austin ;; 10 ;; 3 ;; 4 ;; 2 ;; 134 ;; English ;; H-1B (wage-weighted selection since Feb 2026), O-1, L-1 ;; https://www.uscis.gov/working-in-the-united-states/h-1b-specialty-occupations ;; LinkedIn=https://www.linkedin.com/jobs, Indeed=https://www.indeed.com, Wellfound=https://wellfound.com ;; Highest AI demand and pay. But: GPI 2026 rank 134, at-will employment, and a $100,000 fee on many new overseas H-1B hires (Sept 2025) that has faced court challenges in 2026. Check USCIS for current status. Remote work for US companies is a strong alternative.
+### Remote AI jobs from anywhere | B
+S: Many AI roles are remote. You keep living at home and work for a company abroad, often paid in dollars or euros. Competition is global, so a strong portfolio matters most.
+LINK: We Work Remotely :: https://weworkremotely.com :: Large remote job board :: Free to search
+LINK: Remote OK :: https://remoteok.com :: Remote tech jobs with salary filters :: Free to search
+LINK: Remotive :: https://remotive.com :: Curated remote tech jobs :: Free to search
+LINK: Himalayas :: https://himalayas.app :: Remote jobs with timezone filters :: Free to search
+LINK: Wellfound :: https://wellfound.com :: Startup jobs, many remote :: Free to search
+WARN: Never pay anyone for a job offer, a "visa guarantee" or "processing". Legitimate employers and government portals never ask for this. Verify recruiters on LinkedIn and the company's official website.
+---
+### Moving abroad: the checklist | I
+POINT: Shortlist 3 countries using the ranking above and your own priorities.
+POINT: Read the official visa page: salary thresholds, degree recognition, sponsor rules.
+POINT: Get your degree evaluated or attested if the country needs it.
+POINT: Tailor your resume to local norms (no photo or date of birth in the UK, US, Ireland and Canada).
+POINT: Apply to companies that already sponsor visas; search "visa sponsorship" plus your role on the portals.
+POINT: Before accepting, compare cost of living, tax, health insurance and notice period, not just salary.
+---
+
+## c-linkedin | user | LinkedIn that gets recruiter messages | Profile, content and networking
+### Profile checklist | B
+TABLE: Section by section
+| Section | Do this |
+| Photo and banner | Clear face photo; banner with your focus, e.g. "GenAI Engineer · RAG · Agents" |
+| Headline | Role + skills + proof, not just "Student" |
+| About | Hook, what you build, 3 proof points, tech stack, call to action |
+| Featured | Live demos, GitHub repos, best posts, certificate |
+| Experience | Impact bullets with numbers, AI tools you used |
+| Projects | Each capstone with link and one-line result |
+| Skills | Top 5 pinned: Python, SQL, LLMs, RAG, Prompt Engineering |
+| Open to work | Set job titles and locations (recruiters only, if you prefer) |
+---
+### Headline formulas | B
+POINT: **Role | Skills | Proof**: "AI Engineer | Python, RAG, LangGraph | Built a PDF chatbot used by 300 students"
+POINT: **Problem you solve**: "I build GenAI assistants that cut support tickets | RAG · Agents · FastAPI"
+POINT: **Career switcher**: "PMO → GenAI Solutions | Automating operations with LLMs | Python · SQL · Prompting"
+---
+### About section template | I
+```text
+I build practical GenAI tools that save teams time.
+
+Recently I:
+• Built a RAG chatbot that answers HR policy questions with citations (92% accuracy on a 50-question test)
+• Automated weekly reporting with Python + LLMs, saving 6 hours a week
+• Shipped 5 projects on GitHub with live demos
+
+Stack: Python, SQL, LLM APIs, RAG (Chroma, pgvector), LangGraph, FastAPI, Streamlit, Docker.
+Open to: AI Engineer / GenAI Developer roles. Let's connect — portfolio link below.
+```
+---
+### Content and networking plan | B
+TABLE: Weekly rhythm (30 minutes a day)
+| Day | Action |
+| Mon | Post what you learned this week (with a diagram or code screenshot) |
+| Tue | Comment thoughtfully on 5 posts by people in target companies |
+| Wed | Share a 30-second demo video of a project |
+| Thu | Send 5 personalised connection requests |
+| Fri | Write a short "mistake I made and fixed" post |
+TIP: Connection note: "Hi Priya, I enjoyed your post on RAG evaluation. I'm building a policy chatbot and would value following your work." No job request in the first message.
+---
+
+## c-resume | file | Resume that passes ATS and humans | Structure, bullets and examples
+### Rules | B
+POINT: **One page** for under 8 years of experience; simple single-column layout; standard fonts.
+POINT: Use standard headings: Summary, Skills, Experience, Projects, Education, Certifications.
+POINT: Save as **PDF** (text-based, not an image). Name the file `Firstname_Lastname_Role.pdf`.
+POINT: Mirror keywords from the job description honestly (e.g. "RAG", "LangChain", "vector database").
+POINT: No photos, tables, icons or multiple columns for ATS-heavy companies.
+---
+### The bullet formula | B
+S: **Accomplished [X] as measured by [Y] by doing [Z]** (the XYZ formula popularised by Google recruiters).
+TABLE: Weak → strong
+| Weak | Strong |
+| Worked on a chatbot | Built a RAG chatbot over 120 HR documents, reaching 91% answer accuracy on a 50-question test set using hybrid search and reranking |
+| Used Python for reports | Automated weekly PMO reporting with Python and an LLM summariser, cutting preparation time from 5 hours to 40 minutes |
+| Learned SQL | Wrote 30+ SQL queries with window functions to analyse 1M orders and identify a 12% repeat-purchase opportunity |
+---
+### Skills section for GenAI roles | I
+TABLE: Group your skills
+| Group | Examples |
+| Languages | Python, SQL, JavaScript (basic) |
+| GenAI | Prompt engineering, RAG, embeddings, agents, tool calling, evaluation, fine-tuning (LoRA) |
+| Frameworks | LangChain, LangGraph, LlamaIndex, Hugging Face Transformers |
+| Data | Pandas, NumPy, PostgreSQL, pgvector, Chroma |
+| Deployment | FastAPI, Streamlit, Docker, Git, GitHub Actions |
+---
+### Common mistakes | B
+TABLE: Avoid
+| Mistake | Fix |
+| Listing tools with no proof | Tie each skill to a project bullet |
+| Long paragraphs | 1–2 line bullets starting with a strong verb |
+| No links | Add GitHub, portfolio and live demo links |
+| Fake or inflated claims | Interviewers will ask; keep it true and specific |
+| Same resume for every job | Tailor the summary and top bullets for each role |
+---
+
+## c-jobs | briefcase | Finding and applying for jobs | Where to search, how to apply, how to follow up
+### Where to search (free) | B
+TABLE: Global job platforms
+| Platform | Coverage | Notes |
+| LinkedIn Jobs | Global | Filter "past week", set alerts, search "visa sponsorship" |
+| Indeed | 60+ countries | Wide coverage, salary estimates |
+| Company career pages | Global | Many roles never reach job boards |
+| Wellfound | Global startups | Salary ranges shown, many remote roles |
+| Remote boards | Worldwide | We Work Remotely, Remote OK, Remotive, Himalayas |
+| Hacker News "Who is hiring" | Global / remote | Monthly thread with direct contacts |
+| Country portals | Per country | See the country ranking for each country's best portals |
+---
+### The weekly application system | B
+FLOW: Pick 10 target roles > Tailor resume summary + 3 bullets > Find a referrer or hiring manager > Apply + send short note > Track in a sheet > Follow up after 7 days
+TIP: Referrals and direct messages to hiring managers convert far better than cold online applications. Aim for quality: 10 tailored applications beat 100 generic ones.
+---
+### Referral request template | I
+```text
+Hi Arun, I'm a GenAI developer who recently built a RAG assistant for HR policies (demo: link).
+I noticed the AI Engineer role (Job ID 12345) at your company. My experience with Python,
+RAG evaluation and FastAPI matches the requirements. Would you be open to referring me,
+or pointing me to the hiring manager? Happy to share my resume. Thank you!
+```
+---
+### Tracking and follow-up | B
+TABLE: Tracker columns
+| Column | Example |
+| Company / role / link | Acme · AI Engineer · URL |
+| Date applied / source | 05 Nov · referral |
+| Contact | Arun (engineer), Meera (recruiter) |
+| Stage | Applied → Screen → Tech → Onsite → Offer |
+| Next action and date | Follow up 12 Nov |
+---
+### Offer basics | I
+POINT: Research ranges on free sites such as Glassdoor, AmbitionBox (India) and Levels.fyi before discussing numbers.
+POINT: Let the company share a range first when possible; negotiate on total compensation (base, bonus, equity, benefits, learning budget).
+POINT: Get the final offer in writing before resigning from your current job.
+---

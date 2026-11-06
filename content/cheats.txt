@@ -1,0 +1,562 @@
+# CHEAT SHEETS. ## id | icon | title | subtitle ; ### section ; ROW: term :: meaning
+
+## python | code | Python | Syntax, data structures, OOP, idioms and interview gotchas
+### Basics
+ROW: Types :: `int`, `float`, `str`, `bool`, `None`, `list`, `tuple`, `dict`, `set`
+ROW: Mutable :: list, dict, set (and most objects). Immutable: int, float, str, tuple, frozenset
+ROW: Truthy / falsy :: Falsy: `0`, `""`, `[]`, `{}`, `None`, `False`. Everything else is truthy
+ROW: Identity vs equality :: `is` compares objects, `==` compares values. Use `is None`
+ROW: f-string :: `f"{name!r} {price:.2f} {pct:.1%}"`
+ROW: Slicing :: `s[start:stop:step]`, `s[::-1]` reverses
+ROW: Unpacking :: `a, *rest = [1, 2, 3]`, `x, y = y, x` swaps
+### Data structures
+```python
+nums = [3, 1, 2]; nums.append(4); nums.sort(); nums.pop()       # list
+d = {"a": 1}; d.get("b", 0); d.setdefault("c", []); d.items()   # dict
+s = {1, 2} | {2, 3}; s & {2}; s - {1}                           # set ops
+from collections import Counter, defaultdict, deque
+Counter("banana").most_common(1)      # [('a', 3)]
+g = defaultdict(list); g["k"].append(1)
+q = deque([1, 2]); q.appendleft(0); q.popleft()
+import heapq; heapq.nsmallest(2, [5, 1, 4])
+```
+### Comprehensions and functional
+ROW: List :: `[x*x for x in xs if x > 0]`
+ROW: Dict :: `{k: v for k, v in pairs}`
+ROW: Generator :: `sum(x*x for x in xs)` (lazy, memory-friendly)
+ROW: Sorting :: `sorted(items, key=lambda r: (-r["score"], r["name"]))`
+ROW: zip / enumerate :: `for i, (a, b) in enumerate(zip(xs, ys))`
+ROW: any / all :: `any(x < 0 for x in xs)`
+### Functions
+ROW: Defaults :: Never use mutable defaults: `def f(x, acc=None): acc = acc or []`
+ROW: *args / **kwargs :: Variable positional / keyword arguments
+ROW: Keyword-only :: `def f(a, *, verbose=False)`
+ROW: Closures :: Inner function remembers outer variables (`nonlocal` to modify)
+ROW: Decorator :: `@functools.wraps` keeps name and docstring
+ROW: Type hints :: `def f(x: list[int]) -> dict[str, int]:`
+### OOP
+```python
+from dataclasses import dataclass
+class Animal:
+    count = 0                       # class attribute
+    def __init__(self, name): self.name = name; Animal.count += 1
+    def speak(self): raise NotImplementedError
+    def __repr__(self): return f"Animal({self.name!r})"
+class Dog(Animal):
+    def speak(self): return "Woof"
+@dataclass(frozen=True)
+class Point: x: float; y: float
+```
+ROW: Dunder methods :: `__init__`, `__repr__`, `__eq__`, `__len__`, `__iter__`, `__enter__/__exit__`
+ROW: @staticmethod vs @classmethod :: No self / receives the class (`cls`), used for alternative constructors
+ROW: @property :: Method accessed like an attribute, with validation
+ROW: MRO :: Method resolution order for multiple inheritance (`Class.__mro__`)
+### Errors, files, JSON
+```python
+try:
+    data = json.loads(text)
+except json.JSONDecodeError as e:
+    log.warning("bad json: %s", e)
+else:
+    process(data)
+finally:
+    cleanup()
+with open("f.txt", encoding="utf-8") as f:
+    for line in f: ...
+```
+### Concurrency
+ROW: GIL :: One thread runs Python bytecode at a time in standard CPython
+ROW: threading :: I/O-bound work (API calls, downloads)
+ROW: multiprocessing :: CPU-bound work
+ROW: asyncio :: Many concurrent I/O tasks: `await asyncio.gather(*tasks)`
+### Complexity
+ROW: list :: index O(1), append O(1), insert / search / remove O(n)
+ROW: dict / set :: get, set, in: O(1) average
+ROW: sort :: O(n log n) (Timsort, stable)
+WARN: Classic traps: mutable default arguments, modifying a list while iterating, `is` vs `==`, integer division `//`, late binding in lambdas inside loops, shallow copies of nested lists.
+
+## sql | database | SQL | Queries, joins, windows, performance and the classic interview problems
+### Query skeleton and order
+```sql
+SELECT col, AGG(x) AS a        -- 5
+FROM t JOIN u ON ...           -- 1
+WHERE row_filter               -- 2
+GROUP BY col                   -- 3
+HAVING group_filter            -- 4
+ORDER BY a DESC                -- 6
+LIMIT 10;                      -- 7
+```
+### Filtering
+ROW: Comparison :: `=`, `<>`, `>`, `BETWEEN a AND b`, `IN (...)`, `LIKE 'A%'`, `ILIKE` (Postgres)
+ROW: NULL :: `IS NULL`, `IS NOT NULL`, `COALESCE(x, 0)`, `NULLIF(a, b)`
+ROW: Conditional :: `CASE WHEN x > 0 THEN 'pos' ELSE 'neg' END`
+ROW: Dedupe :: `SELECT DISTINCT`, `COUNT(DISTINCT col)`
+### Joins
+ROW: INNER :: Matches only
+ROW: LEFT :: All left rows; anti-join with `WHERE right.id IS NULL`
+ROW: FULL OUTER :: All rows both sides
+ROW: CROSS :: Cartesian product
+ROW: SELF :: `employees e JOIN employees m ON e.manager_id = m.id`
+ROW: Semi-join :: `WHERE EXISTS (SELECT 1 FROM ...)`
+### Window functions
+```sql
+ROW_NUMBER() OVER (PARTITION BY g ORDER BY x DESC)
+RANK() / DENSE_RANK() OVER (ORDER BY score DESC)
+SUM(x) OVER (ORDER BY d ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW)
+AVG(x) OVER (ORDER BY d ROWS BETWEEN 6 PRECEDING AND CURRENT ROW)   -- 7-day moving average
+LAG(x, 1) OVER (ORDER BY d), LEAD(x) OVER (...), NTILE(4) OVER (...)
+FIRST_VALUE(x) OVER (PARTITION BY g ORDER BY d)
+```
+### Classic problems
+```sql
+-- Nth highest
+WITH r AS (SELECT salary, DENSE_RANK() OVER (ORDER BY salary DESC) rk FROM emp)
+SELECT DISTINCT salary FROM r WHERE rk = 3;
+-- Top 2 per department
+SELECT * FROM (SELECT *, ROW_NUMBER() OVER (PARTITION BY dept ORDER BY salary DESC) rn FROM emp) t
+WHERE rn <= 2;
+-- Duplicates
+SELECT email, COUNT(*) FROM users GROUP BY email HAVING COUNT(*) > 1;
+-- Month-on-month growth
+WITH m AS (SELECT DATE_TRUNC('month', d) mon, SUM(amt) rev FROM sales GROUP BY 1)
+SELECT mon, rev, ROUND(100.0 * (rev - LAG(rev) OVER (ORDER BY mon)) / LAG(rev) OVER (ORDER BY mon), 1) pct FROM m;
+-- Streaks (consecutive login days)
+SELECT user_id, MIN(d), MAX(d), COUNT(*) days FROM
+ (SELECT user_id, d, d - (ROW_NUMBER() OVER (PARTITION BY user_id ORDER BY d)) * INTERVAL '1 day' grp FROM logins) t
+GROUP BY user_id, grp HAVING COUNT(*) >= 3;
+```
+### Design and performance
+ROW: Keys :: Primary key (unique, not null), foreign key (referential integrity), unique, check, default
+ROW: Normal forms :: 1NF atomic values; 2NF no partial dependency; 3NF no transitive dependency
+ROW: Indexes :: B-tree for equality/range; composite index follows leftmost-prefix rule
+ROW: EXPLAIN :: `EXPLAIN ANALYZE` shows the plan: look for sequential scans on big tables
+ROW: ACID :: Atomicity, Consistency, Isolation, Durability
+ROW: Isolation levels :: Read uncommitted < read committed < repeatable read < serializable
+ROW: OLTP vs OLAP :: Many small transactions vs large analytical scans (warehouses, columnar)
+ROW: Star schema :: Fact table (events, measures) + dimension tables (who, what, when, where)
+ROW: pgvector :: `ORDER BY embedding <=> query_vec LIMIT k` (cosine distance)
+WARN: Traps: `= NULL` never matches; `COUNT(col)` skips NULLs but `COUNT(*)` doesn't; integer division in some engines; aliases are not usable in WHERE; LEFT JOIN turns into INNER when you filter the right table in WHERE.
+
+## stats | sigma | Maths & Statistics | Linear algebra, probability, statistics and calculus for AI
+### Linear algebra
+ROW: Vector / matrix / tensor :: 1-D list / 2-D grid / n-D array of numbers
+ROW: Dot product :: `a·b = Σ aᵢbᵢ`; large when vectors align
+ROW: Cosine similarity :: `a·b / (‖a‖‖b‖)` in [−1, 1]
+ROW: Matrix multiply :: (m×n)(n×p) → (m×p); each layer of a network is `XW + b`
+ROW: Eigenvectors / PCA :: Directions of maximum variance
+ROW: Norms :: L1 = Σ|x| (sparsity), L2 = √Σx² (regularisation)
+### Probability
+ROW: Conditional :: `P(A|B) = P(A∩B) / P(B)`
+ROW: Bayes :: `P(A|B) = P(B|A) P(A) / P(B)`
+ROW: Independence :: `P(A∩B) = P(A) P(B)`
+ROW: Expected value :: `E[X] = Σ x P(x)`
+ROW: Distributions :: Bernoulli, binomial, Poisson (counts), normal, uniform, exponential
+ROW: Softmax :: `exp(zᵢ) / Σ exp(zⱼ)`; temperature divides z before softmax
+### Statistics
+ROW: Central tendency :: Mean (sensitive to outliers), median (robust), mode
+ROW: Spread :: Variance, standard deviation, IQR
+ROW: CLT :: Sample means are approximately normal for large n
+ROW: Hypothesis test :: H₀ vs H₁; p-value < α (e.g. 0.05) → reject H₀
+ROW: Errors :: Type I = false positive (α); Type II = false negative (β); power = 1 − β
+ROW: Confidence interval :: Range likely to contain the true parameter at a given confidence
+ROW: Tests :: t-test (means), chi-square (categories), ANOVA (3+ groups)
+ROW: Correlation :: Pearson (linear), Spearman (rank); correlation ≠ causation
+### Calculus and optimisation
+ROW: Derivative :: Rate of change / slope
+ROW: Chain rule :: `d/dx f(g(x)) = f'(g(x)) g'(x)`, the core of backprop
+ROW: Gradient descent :: `θ ← θ − η ∇L(θ)`
+ROW: Convex :: One global minimum; neural nets are non-convex
+### Information theory
+ROW: Entropy :: Uncertainty: `−Σ p log p`
+ROW: Cross-entropy :: Loss for classification / next-token prediction
+ROW: KL divergence :: How one distribution differs from another (used in RLHF, distillation)
+ROW: Perplexity :: `exp(cross-entropy)`; lower = better language model
+
+## pandas | table | Pandas & NumPy | Data wrangling commands you will use every day
+### NumPy
+```python
+import numpy as np
+a = np.arange(12).reshape(3, 4); a.shape, a.T, a[:, 1], a[a > 5]
+np.mean(a, axis=0); np.where(a > 5, 1, 0); np.concatenate([a, a]); a @ a.T
+```
+ROW: Broadcasting :: Arrays of different shapes combine when trailing dimensions match or are 1
+### Pandas: load and inspect
+```python
+df = pd.read_csv("f.csv", parse_dates=["date"])
+df.head(); df.info(); df.describe(include="all"); df.shape; df.dtypes; df.nunique()
+```
+### Select and filter
+ROW: Columns :: `df["a"]`, `df[["a", "b"]]`
+ROW: Rows by label / position :: `df.loc[rows, cols]`, `df.iloc[0:5, 1:3]`
+ROW: Boolean filter :: `df[(df.a > 1) & (df.b == "x")]`, `df.query("a > 1 and b == 'x'")`
+ROW: Membership :: `df[df.city.isin(["Chennai", "Pune"])]`
+### Clean
+ROW: Missing :: `isna().sum()`, `fillna(v)`, `dropna(subset=[...])`, `interpolate()`
+ROW: Duplicates :: `duplicated()`, `drop_duplicates(subset=[...], keep="last")`
+ROW: Types :: `astype("int")`, `pd.to_datetime()`, `pd.to_numeric(errors="coerce")`
+ROW: Strings :: `.str.lower()`, `.str.strip()`, `.str.contains("x")`, `.str.extract(r"(\d+)")`
+ROW: Rename / drop :: `rename(columns={...})`, `drop(columns=[...])`
+### Transform and aggregate
+```python
+df.groupby("city").agg(orders=("id", "count"), revenue=("amt", "sum"))
+df.pivot_table(index="city", columns="month", values="amt", aggfunc="sum", fill_value=0)
+df.merge(other, on="id", how="left")      # inner / left / right / outer
+pd.concat([df1, df2], ignore_index=True)
+df["rank"] = df.groupby("city")["amt"].rank(ascending=False)
+df["roll7"] = df["amt"].rolling(7).mean()
+df.melt(id_vars="id"); df.explode("tags"); df.sample(frac=0.1, random_state=1)
+```
+WARN: Avoid row loops; use vectorised operations. Use `.copy()` after filtering to avoid `SettingWithCopyWarning`.
+
+## ml | cpu | Machine Learning | Algorithms, evaluation, workflow and interview essentials
+### Problem types
+ROW: Regression :: Predict a number (price, demand)
+ROW: Classification :: Predict a category (spam, churn)
+ROW: Clustering :: Group unlabeled data (segments)
+ROW: Ranking / recommendation :: Order items for a user
+ROW: Anomaly detection :: Find rare unusual events (fraud)
+### Algorithms
+ROW: Linear regression :: Minimise squared error; assumes linearity
+ROW: Logistic regression :: Sigmoid of linear score; log-loss
+ROW: k-NN :: Vote of nearest neighbours; needs scaling
+ROW: Naive Bayes :: Bayes rule with independence assumption; fast text baseline
+ROW: SVM :: Max-margin boundary; kernels for non-linear
+ROW: Decision tree :: Recursive splits by Gini or entropy
+ROW: Random forest :: Bagging + random features
+ROW: Gradient boosting :: Sequential trees on residuals (XGBoost, LightGBM, CatBoost)
+ROW: K-Means :: Minimise within-cluster distance; choose K via elbow / silhouette
+ROW: DBSCAN :: Density clusters, finds noise
+ROW: PCA / t-SNE / UMAP :: Dimensionality reduction / visualisation
+### Evaluation
+ROW: Splits :: Train / validation / test; stratify for imbalance; time-based split for time series
+ROW: Cross-validation :: k-fold average for robust estimates
+ROW: Classification :: Accuracy, precision, recall, F1, ROC-AUC, PR-AUC, confusion matrix
+ROW: Regression :: MAE, MSE, RMSE, R², MAPE
+ROW: Imbalance :: Class weights, resampling (SMOTE), threshold tuning, PR-AUC
+ROW: Calibration :: Predicted probabilities match real frequencies
+### Bias, variance, regularisation
+ROW: Underfit :: High bias → more features, complex model
+ROW: Overfit :: High variance → more data, regularise, simplify
+ROW: L1 (Lasso) :: Sparse weights, feature selection
+ROW: L2 (Ridge) :: Small weights, stability
+ROW: Early stopping :: Stop when validation stops improving
+### Workflow
+FLOW: Define problem > Data > EDA > Features > Baseline > Model > Tune > Evaluate > Deploy > Monitor drift
+ROW: Feature scaling :: StandardScaler (z-score), MinMaxScaler
+ROW: Encoding :: One-hot, ordinal, target encoding (beware leakage)
+ROW: Leakage :: Fit preprocessing on training data only; time-aware splits
+ROW: Drift :: Data drift (inputs change), concept drift (relationship changes)
+
+## dl | brain | Deep Learning | Neural networks, training, architectures and PyTorch
+### Building blocks
+ROW: Neuron :: `σ(w·x + b)`
+ROW: Activations :: ReLU, GELU, SwiGLU (transformers), sigmoid, tanh, softmax
+ROW: Losses :: MSE, binary cross-entropy, cross-entropy, contrastive (embeddings)
+ROW: Backprop :: Chain rule from loss to every weight
+ROW: Optimisers :: SGD (+momentum), Adam, AdamW (decoupled weight decay)
+ROW: LR schedule :: Warmup then cosine / linear decay
+### Training stability
+ROW: Normalisation :: BatchNorm (CNNs), LayerNorm / RMSNorm (transformers)
+ROW: Residual connections :: `x + f(x)` lets gradients flow in deep nets
+ROW: Regularisation :: Dropout, weight decay, augmentation, early stopping
+ROW: Gradient clipping :: Prevent exploding gradients
+ROW: Mixed precision :: fp16/bf16 for speed and memory
+### Architectures
+ROW: MLP :: Stacked fully-connected layers
+ROW: CNN :: Convolutions + pooling; images
+ROW: RNN / LSTM / GRU :: Sequences with recurrence; gates fight vanishing gradients
+ROW: Transformer :: Attention + feed-forward + residual + norm
+ROW: Autoencoder / VAE :: Compress and reconstruct; latent space
+ROW: GAN :: Generator vs discriminator
+ROW: Diffusion :: Learn to denoise; generate from noise
+### PyTorch loop
+```python
+model.train()
+for xb, yb in loader:
+    xb, yb = xb.to(device), yb.to(device)
+    loss = loss_fn(model(xb), yb)
+    opt.zero_grad(); loss.backward()
+    torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
+    opt.step(); sched.step()
+model.eval()
+with torch.no_grad(): preds = model(x_val)
+```
+
+## nlp | message | NLP | Classic NLP, tokenisation and embeddings
+### Pipeline
+FLOW: Text > Normalise > Tokenise > Represent (BoW / TF-IDF / embeddings) > Model > Output
+### Concepts
+ROW: Tokenisation :: Word, subword (BPE, WordPiece, SentencePiece/Unigram), character
+ROW: Stopwords :: Very frequent words often removed in classic NLP
+ROW: Stemming vs lemmatisation :: Chop suffix vs dictionary base form
+ROW: BoW / TF-IDF :: Count vectors / weighted by rarity across documents
+ROW: n-grams :: Sequences of n tokens ("New York")
+ROW: Word2Vec / GloVe / fastText :: Static word embeddings (fastText handles sub-words)
+ROW: Contextual embeddings :: BERT-style: same word, different vector by context
+ROW: Sentence embeddings :: Sentence-Transformers, embedding APIs for search and RAG
+### Tasks
+ROW: Classification :: Sentiment, intent, topic, spam
+ROW: NER :: People, organisations, places, dates
+ROW: QA :: Extractive (span) vs generative
+ROW: Summarisation :: Extractive vs abstractive
+ROW: Translation :: Seq2seq / LLMs
+### Metrics
+ROW: BLEU :: n-gram overlap (translation)
+ROW: ROUGE :: Recall-oriented overlap (summaries)
+ROW: BERTScore :: Embedding similarity of outputs
+ROW: Perplexity :: Language-model quality
+TIP: For modern generative tasks, n-gram metrics correlate poorly with quality; use rubric-based human or LLM-as-judge evaluation as well.
+
+## llm | layers | Transformers & LLMs | Architecture, training, inference and model selection
+### Architecture
+ROW: Attention :: `softmax(QKᵀ/√dₖ) V`
+ROW: Multi-head :: Several attention heads concatenated
+ROW: Causal mask :: Decoder tokens see only previous tokens
+ROW: Positional info :: Sinusoidal, learned, RoPE (rotary), ALiBi
+ROW: Block :: Attention → add & norm → feed-forward → add & norm
+ROW: Families :: Encoder (BERT), decoder (GPT, Claude, Llama, Gemini), encoder-decoder (T5)
+ROW: MoE :: Mixture-of-Experts routes each token to a few expert networks; more capacity per FLOP
+### Training
+ROW: Pretraining :: Next-token prediction on trillions of tokens
+ROW: SFT :: Supervised instruction tuning
+ROW: Preference tuning :: RLHF (reward model + PPO), DPO, RLAIF / constitutional methods
+ROW: Reasoning training :: RL on verifiable tasks (maths, code) to improve step-by-step thinking
+ROW: Scaling laws :: Loss falls predictably with parameters, data and compute
+### Inference
+ROW: Decoding :: Greedy, beam search, sampling (temperature, top-p, top-k)
+ROW: KV cache :: Stores past keys/values to avoid recomputation
+ROW: Quantisation :: 8-bit / 4-bit weights (GPTQ, AWQ, GGUF)
+ROW: Speculative decoding :: Small draft model proposes tokens; big model verifies
+ROW: Batching :: Continuous batching (e.g. vLLM) for throughput
+ROW: Context length :: Long context vs retrieval trade-off; "lost in the middle" effect
+### Choosing a model
+ROW: Quality :: Task benchmarks + your own evaluation set
+ROW: Cost / latency :: Price per million tokens, time-to-first-token, tokens per second
+ROW: Privacy :: API vs self-hosted open weights
+ROW: Features :: Tool calling, structured output, vision, long context, fine-tuning support
+ROW: Licence :: Check open-weight licences for commercial use
+
+## prompt | pen | Prompt Engineering | Patterns, templates and evaluation
+### Structure
+ROW: Role :: Expertise and perspective
+ROW: Task :: Clear action verb and goal
+ROW: Context :: Audience, background, data in tags
+ROW: Format :: Length, sections, JSON schema
+ROW: Rules :: Must / must not, tone, fallback behaviour
+### Techniques
+ROW: Zero-shot :: Instructions only
+ROW: Few-shot :: 2–5 varied examples
+ROW: Chain-of-thought :: Reason step by step; final answer on its own line
+ROW: Self-consistency :: Sample several, majority vote
+ROW: Tree-of-thoughts :: Explore and evaluate several paths
+ROW: ReAct :: Interleave reasoning and tool actions
+ROW: Prompt chaining :: Pipeline of small prompts
+ROW: Meta-prompting :: Ask the model to improve your prompt
+ROW: Prefill :: Start the assistant's answer (e.g. `{`) to force format
+### Templates
+```text
+<role>You are a {expert}.</role>
+<task>{task}</task>
+<context>{data}</context>
+<format>Return JSON: {"answer": str, "confidence": "low|medium|high", "sources": [str]}</format>
+<rules>Use only the context. If unsure, answer "unknown".</rules>
+```
+### Evaluation
+ROW: Test set :: Typical, edge, adversarial inputs
+ROW: Checks :: Schema validity, length, required keywords, banned content
+ROW: LLM-as-judge :: Rubric with 1–5 scores and reasons; calibrate against humans
+ROW: Versioning :: Prompts in Git; log version per response
+
+## api | plug | LLM APIs | Messages, streaming, tools, structured output and reliability
+### Concepts
+ROW: Roles :: system (rules), user (input), assistant (model turns), tool (results)
+ROW: Stateless :: Resend history each call
+ROW: Tokens :: Billed input + output; check `usage` in responses
+ROW: Streaming :: Server-sent events; show tokens as they arrive
+ROW: Tool calling :: Model returns tool name + JSON args; you execute and return result
+ROW: Structured output :: JSON schema mode; validate with Pydantic
+ROW: Vision / files :: Send images or PDFs as content blocks
+ROW: Embeddings endpoint :: Text → vector for search
+### Free ways to practise
+ROW: Google AI Studio :: Free, rate-limited Gemini API key; free-tier data may be used to improve Google products
+ROW: Ollama :: Run open models locally, OpenAI-compatible endpoint
+ROW: Hugging Face :: Free models, Spaces and limited free inference
+ROW: Transformers.js :: Run small models in the browser (used in this app's RAG Lab)
+### Reliability
+ROW: Errors :: 400 bad request, 401 auth, 429 rate limit, 5xx server
+ROW: Retries :: Exponential backoff with jitter; idempotent requests
+ROW: Timeouts :: Always set; fall back to a smaller model
+ROW: Secrets :: Environment variables / secret managers; never in client-side code for production
+ROW: Cost control :: Smaller models, caching, max tokens, batch APIs, prompt compression
+
+## rag | library | Vectors & RAG | Embeddings, vector databases, retrieval and evaluation
+### Pipeline
+FLOW: Ingest > Parse > Chunk > Embed > Index > Retrieve > Rerank > Generate > Evaluate
+### Design choices
+ROW: Chunking :: Fixed, recursive, structure-aware, semantic; 300–800 tokens, 10–20% overlap
+ROW: Embedding model :: Quality on your language/domain, dimensions, cost, speed
+ROW: Index :: HNSW (fast, memory-heavy), IVF (clustered), flat (exact, small data)
+ROW: Distance :: Cosine, dot product, Euclidean (normalise vectors for cosine)
+ROW: Hybrid :: BM25 + dense; fuse with reciprocal rank fusion
+ROW: Reranker :: Cross-encoder over top-N candidates
+ROW: Metadata :: Source, page, section, date, tenant, ACL; filter before ranking
+ROW: Context assembly :: Deduplicate, order by relevance, cite sources, respect token budget
+### Advanced
+ROW: Query rewriting :: Clarify / expand the question
+ROW: Multi-query / RAG-Fusion :: Several queries, merged results
+ROW: HyDE :: Embed a hypothetical answer
+ROW: Parent-child :: Retrieve small, return larger parent
+ROW: Contextual retrieval :: Prepend chunk-specific context before embedding
+ROW: GraphRAG :: Entity graph + community summaries
+ROW: Agentic RAG :: Agent decides searches iteratively
+### Evaluation
+ROW: Retrieval :: Recall@k, precision@k, MRR, nDCG, hit rate
+ROW: Generation :: Faithfulness, answer relevance, context precision/recall, citation accuracy
+ROW: Tools :: RAGAS, DeepEval, TruLens, Arize Phoenix (open source)
+WARN: Common failures: bad PDF parsing, chunks without context, stale indexes, missing permissions filtering, too many chunks (noise), no abstain path.
+
+## agents | bot | Agents & MCP | Loops, patterns, tools, memory, protocols and safety
+### Core
+ROW: Agent :: LLM + tools + memory + control loop + stop condition
+ROW: ReAct :: Thought → Action → Observation loop
+ROW: Planning :: Decompose goal; plan-and-execute; re-plan on failure
+ROW: Reflection :: Critique own output and retry
+ROW: Memory :: Short-term (context), long-term (DB / vectors), episodic (past runs)
+### Workflow patterns
+ROW: Prompt chaining :: Fixed sequence of steps
+ROW: Routing :: Classify and dispatch to specialist
+ROW: Parallelisation :: Sectioning or voting in parallel
+ROW: Orchestrator-workers :: Lead plans, workers execute subtasks
+ROW: Evaluator-optimiser :: Generate → critique → improve loop
+### MCP
+ROW: Host / client / server :: App / connector / tool provider
+ROW: Primitives :: Tools (actions), resources (data), prompts (templates)
+ROW: Transports :: stdio (local), streamable HTTP (remote)
+ROW: Security :: Trust only vetted servers; least privilege; review tool permissions
+### Safety and evaluation
+ROW: Limits :: Max steps, time, tokens, money
+ROW: Approvals :: Human-in-the-loop for irreversible actions
+ROW: Sandboxing :: Run code and browsers in isolated environments
+ROW: Injection :: Treat tool outputs and web content as untrusted
+ROW: Metrics :: Task success, steps, cost, latency, safety incidents, intervention rate
+
+## finetune | sliders | Fine-tuning | SFT, PEFT, LoRA, alignment and evaluation
+### When
+ROW: Fine-tune for :: Style, format, narrow skill, smaller/faster model, consistent behaviour
+ROW: Don't fine-tune for :: Fresh or frequently changing facts (use RAG)
+### Methods
+ROW: SFT :: Train on prompt → ideal response pairs
+ROW: Full fine-tuning :: Update all weights; expensive
+ROW: PEFT :: Update few parameters (LoRA, prefix tuning, adapters)
+ROW: LoRA :: Low-rank matrices A·B added to weight updates; rank r, alpha, target modules
+ROW: QLoRA :: LoRA on 4-bit (NF4) quantised base model
+ROW: Distillation :: Student mimics teacher outputs
+ROW: Preference :: RLHF (PPO with reward model), DPO, ORPO, KTO
+### Data
+ROW: Format :: JSONL chat messages; consistent system prompts
+ROW: Size :: Hundreds to thousands of high-quality varied examples
+ROW: Split :: Hold out a test set; deduplicate; remove PII
+### Hyperparameters
+ROW: Learning rate :: ~1e-4 to 2e-4 for LoRA (lower for full fine-tunes)
+ROW: Epochs :: 1–3; watch validation loss
+ROW: Rank r :: 8–64; higher = more capacity
+### Risks
+ROW: Overfitting :: Memorises examples; poor generalisation
+ROW: Catastrophic forgetting :: Loses general abilities
+ROW: Safety drift :: Fine-tuning can weaken refusals; re-run safety evals
+TIP: Free practice: Google Colab or Kaggle notebooks (free GPU quotas) with Hugging Face TRL / PEFT or Unsloth on a 0.5B–3B open model.
+
+## ops | rocket | LLMOps & Deployment | Ship, evaluate, monitor and optimise
+### Stack
+ROW: UI :: Streamlit, Gradio, static HTML on GitHub Pages
+ROW: Backend :: FastAPI, serverless functions
+ROW: Serving open models :: vLLM, TGI, Ollama, llama.cpp
+ROW: Packaging :: Docker; pin dependencies (`requirements.txt`)
+ROW: Free hosting :: Hugging Face Spaces, Streamlit Community Cloud, GitHub Pages (static), Render free tier
+### Evaluation
+ROW: Offline :: Golden set, regression tests, LLM-as-judge, human review
+ROW: Online :: A/B tests, thumbs up/down, task completion, escalation rate
+ROW: Gates :: Block deploys if scores drop below thresholds
+### Observability
+ROW: Traces :: Prompt, context, tool calls, outputs, tokens, latency per step
+ROW: Tools :: Langfuse, Arize Phoenix, OpenTelemetry (open source options)
+ROW: Alerts :: Error spikes, latency p95, cost per day, safety flags
+### Optimisation
+ROW: Cost :: Model routing, caching, prompt compression, batching, shorter outputs
+ROW: Latency :: Streaming, smaller models, parallel retrieval, fewer chunks, regional deployment
+ROW: Quality :: Better retrieval, reranking, few-shot examples, fine-tuning
+### Versioning
+ROW: Prompts :: Stored in Git with IDs
+ROW: Models :: Pin exact model versions; test before upgrading
+ROW: Data :: Version indexes and datasets
+
+## git | terminal | Git, Linux & Docker | The developer toolkit every AI engineer uses
+### Git
+```bash
+git clone URL; git status; git add -A; git commit -m "msg"; git push
+git switch -c feature/rag; git merge main; git rebase main
+git log --oneline --graph; git diff; git stash; git restore file
+git revert <sha>        # safe undo on shared branches
+```
+ROW: Branching :: Feature branches + pull requests + code review
+ROW: .gitignore :: `.env`, `venv/`, `__pycache__/`, `*.pkl`, `node_modules/`
+ROW: Merge vs rebase :: Merge keeps history; rebase rewrites for a linear history (never on shared branches)
+### Linux
+```bash
+ls -la; cd; pwd; mkdir -p a/b; cp -r; mv; rm -r; cat; less; head; tail -f log.txt
+grep -rn "error" .; find . -name "*.py"; chmod +x run.sh; ps aux; kill PID; top
+curl -s URL | jq '.data'; export KEY=value; echo $PATH; ssh user@host
+```
+### Docker
+```bash
+docker build -t app .; docker run -p 8000:8000 --env-file .env app
+docker ps; docker logs -f ID; docker exec -it ID sh; docker compose up -d
+```
+ROW: Image vs container :: Blueprint vs running instance
+ROW: Layers and cache :: Copy requirements and install before copying code
+
+## system | compass | GenAI System Design | Framework, components and trade-offs for design rounds
+### Framework
+FLOW: Requirements > Metrics > Architecture > Data and retrieval > Model and prompts > Evaluation and safety > Scale, latency, cost
+### Clarifying questions
+ROW: Users and scale :: Who, how many, queries per second at peak
+ROW: Latency :: Time-to-first-token and total targets
+ROW: Accuracy :: Tolerance for errors; need for citations
+ROW: Data :: Sources, freshness, sensitivity, languages, permissions
+ROW: Budget :: Cost per query, infrastructure limits
+### Components
+ROW: Gateway :: Auth, rate limiting, quotas
+ROW: Orchestrator :: Prompting, tool calls, retries, routing
+ROW: Retrieval :: Ingestion pipeline, hybrid index, reranker, ACL filters
+ROW: Models :: Router between small and large; fallbacks
+ROW: Guardrails :: Input/output moderation, PII, injection defence
+ROW: Caching :: Exact and semantic caches; embedding cache
+ROW: Observability :: Traces, metrics, evaluation pipelines, feedback
+### Back-of-envelope
+ROW: Tokens per query :: Prompt + context + output (e.g. 3,000 in + 400 out)
+ROW: Daily cost :: Queries × tokens × price per token
+ROW: Throughput :: QPS × tokens per request ÷ tokens per second per replica
+TIP: Always close with risks and how you would measure success after launch.
+
+## safety | shield | Responsible AI | Risks, controls and regulations
+### Risks
+ROW: Hallucination :: Fabricated facts or citations
+ROW: Bias :: Unequal treatment across groups
+ROW: Privacy :: PII exposure, memorisation, logging sensitive data
+ROW: Security :: Prompt injection, data exfiltration, jailbreaks, insecure tools
+ROW: Misuse :: Deepfakes, fraud, harmful content
+ROW: IP :: Copyright and licensing of data and outputs
+### Controls
+ROW: Grounding :: RAG with citations and abstention
+ROW: Guardrails :: Moderation, policy prompts, output validation
+ROW: Privacy :: Minimisation, masking, encryption, retention policies, access control
+ROW: Security :: Least privilege, sandboxing, approvals, red-teaming
+ROW: Transparency :: Disclose AI use; model cards; user controls
+ROW: Governance :: Risk registers, reviews, incident response
+### Frameworks and laws
+ROW: EU AI Act :: Risk-based obligations; transparency duties
+ROW: India DPDP Act 2023 :: Consent and duties for personal data processing
+ROW: GDPR :: EU data protection rights and duties
+ROW: NIST AI RMF :: Govern, Map, Measure, Manage
+ROW: ISO/IEC 42001 :: AI management system standard
+ROW: OWASP Top 10 for LLM Apps :: Common LLM security risks checklist

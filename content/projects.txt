@@ -1,0 +1,83 @@
+## p01 | message | Personal AI chatbot with memory | A chat app with a persona, memory and streaming
+META: level = Beginner
+POINT: Choose a persona (study buddy, tea-shop assistant) and write a strong system prompt.
+POINT: Keep chat history in a list; trim it when it grows.
+POINT: Build the UI with Streamlit or Gradio and add a "clear chat" button.
+POINT: Log tokens per message and show the running count.
+ROW: Build online (free) :: Google Colab + Gradio share link, or Hugging Face Spaces
+ROW: Build locally (free) :: Python + Streamlit + Ollama (no API key needed)
+ROW: LLM (free) :: Ollama local model or Google AI Studio free tier
+ROW: Deliverable :: GitHub repo, README with screenshots, live link
+## p02 | pen | Email reply generator | Paste an email, pick a tone, get three replies
+META: level = Beginner
+POINT: Build a prompt template with role, task, tone variable and length rules.
+POINT: Return JSON with three variants and validate it.
+POINT: Add a test set of 10 emails and check every output.
+ROW: Build online (free) :: This app's Prompt Lab for design, then Colab or HF Spaces
+ROW: Build locally (free) :: Python + Streamlit + Ollama
+ROW: Deliverable :: Repo, prompt file, 10-case test results
+## p03 | chart | Sales data analyser with AI summary | Upload a CSV, get charts and a plain-English report
+META: level = Beginner
+POINT: Load and clean data with Pandas; build 3 charts.
+POINT: Answer 5 business questions with SQL (SQLite) or Pandas.
+POINT: Send summary statistics to an LLM to write insights for a manager.
+ROW: Build online (free) :: This app's Python and SQL Labs, then Google Colab
+ROW: Build locally (free) :: Python + Jupyter + SQLite
+ROW: Deliverable :: Notebook, PDF report, README
+## p04 | library | Chat with your PDF (RAG) | Answers with page citations and an "I don't know" fallback
+META: level = Intermediate
+POINT: Parse PDFs page by page; chunk with overlap; keep page metadata.
+POINT: Embed with sentence-transformers; store in Chroma.
+POINT: Retrieve top-k, build a grounded prompt, cite pages.
+POINT: Create a 20-question golden set and report accuracy.
+ROW: Build online (free) :: This app's RAG Lab to learn, then Google Colab + Gradio
+ROW: Build locally (free) :: Python + Chroma + sentence-transformers + Ollama
+ROW: Deliverable :: Repo, demo video, evaluation table
+## p05 | database | Text-to-SQL assistant | Ask questions in English, get safe SQL and answers
+META: level = Intermediate
+POINT: Load a sample database (SQLite) and describe its schema in the prompt.
+POINT: Generate SQL as structured output; block anything except SELECT.
+POINT: Run with a read-only connection, add LIMIT, explain the result in English.
+ROW: Build online (free) :: This app's SQL Lab for queries, then Colab
+ROW: Build locally (free) :: Python + SQLite + Ollama or Gemini free tier
+ROW: Deliverable :: Repo, 15 test questions with results
+## p06 | mic | Meeting notes summariser | Audio → transcript → decisions and action items
+META: level = Intermediate
+POINT: Transcribe audio with open-source Whisper.
+POINT: Summarise long transcripts in chunks, then combine.
+POINT: Extract action items as JSON with owner and due date.
+ROW: Build online (free) :: Google Colab (free GPU) with Whisper
+ROW: Build locally (free) :: Python + Whisper + Ollama
+ROW: Deliverable :: Repo, sample input and output, README
+## p07 | bot | Research agent | Searches, reads, compares sources and writes a cited brief
+META: level = Advanced
+POINT: Give the agent tools: search, fetch page, save note.
+POINT: Add step and cost limits; log every tool call.
+POINT: Produce a one-page brief with citations; evaluate 5 topics.
+ROW: Build online (free) :: Google Colab + LangGraph + Gemini free tier
+ROW: Build locally (free) :: Python + LangGraph + Ollama
+ROW: Deliverable :: Repo, trace screenshots, sample reports
+## p08 | shield | Domain assistant with guardrails | A policy bot for HR, healthcare or legal with evaluation
+META: level = Advanced
+POINT: Hybrid retrieval + reranking + citations.
+POINT: PII masking, injection filters, refusal rules and human handoff.
+POINT: Golden set with faithfulness and relevance scores (RAGAS or LLM-as-judge).
+ROW: Build online (free) :: Google Colab + Hugging Face Spaces
+ROW: Build locally (free) :: Python + Qdrant or Chroma + FastAPI + Streamlit
+ROW: Deliverable :: Repo, architecture diagram, evaluation report
+## p09 | sliders | Fine-tuned brand voice model | LoRA on a small open model vs prompting
+META: level = Advanced
+POINT: Write 200+ examples in one brand voice (JSONL).
+POINT: Fine-tune a 0.5B–3B model with LoRA using Unsloth or TRL.
+POINT: Compare base vs fine-tuned on 30 prompts with a rubric.
+ROW: Build online (free) :: Google Colab or Kaggle free GPU
+ROW: Build locally (free) :: Requires an NVIDIA GPU
+ROW: Deliverable :: Notebook, adapter on Hugging Face Hub, comparison table
+## p10 | rocket | Production RAG service | API + UI + Docker + monitoring
+META: level = Advanced
+POINT: Wrap your RAG in FastAPI; add a Streamlit front-end.
+POINT: Containerise with Docker; deploy to a free host.
+POINT: Log latency, tokens and feedback; add an evaluation gate in GitHub Actions.
+ROW: Build online (free) :: GitHub + Hugging Face Spaces (Docker Space)
+ROW: Build locally (free) :: Docker Desktop + FastAPI + Streamlit
+ROW: Deliverable :: Live link, repo, dashboard screenshot

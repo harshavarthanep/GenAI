@@ -1,0 +1,26 @@
+{
+  "name": "GenAI Mastery by Harsha Varthan E P",
+  "short_name": "GenAI Mastery",
+  "description": "Learn Generative AI from zero to expert: tracks, labs, cheat sheets, interview prep and certificate.",
+  "id": "./",
+  "start_url": "./#/",
+  "scope": "./",
+  "display": "standalone",
+  "display_override": ["window-controls-overlay", "standalone"],
+  "orientation": "any",
+  "background_color": "#0c0d0e",
+  "theme_color": "#0c0d0e",
+  "categories": ["education", "productivity"],
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icons/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" },
+    { "src": "icons/icon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ],
+  "shortcuts": [
+    { "name": "Fast Track", "url": "./#/track/fast" },
+    { "name": "Python Lab", "url": "./#/lab/python" },
+    { "name": "Cheat sheets", "url": "./#/sheets" },
+    { "name": "Interview prep", "url": "./#/interview" }
+  ]
+}

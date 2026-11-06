@@ -1,0 +1,81 @@
+## r-practice | terminal | Where to practise every subject | Two options for everything: install locally or use free online tools
+### Python | B
+ROW: Local (Windows / Mac / Linux) :: Install from python.org (tick "Add to PATH"), then VS Code with the Python extension
+ROW: Online (no install) :: This app's Python Lab, Google Colab, Kaggle Notebooks, Programiz online compiler, Python Tutor (visualise code)
+### SQL | B
+ROW: Local :: SQLite + DB Browser for SQLite, or PostgreSQL
+ROW: Online :: This app's SQL Lab, SQLBolt, SQLite Online, DB Fiddle, LeetCode SQL problems
+### Data analysis and ML | B
+ROW: Local :: Python + Jupyter (`pip install notebook pandas scikit-learn`)
+ROW: Online :: Google Colab, Kaggle Notebooks (free GPU quotas)
+### LLM APIs and prompting | I
+ROW: Local :: Ollama or LM Studio with open models (free, runs on your laptop)
+ROW: Online :: Google AI Studio (free tier, rate-limited), Hugging Face Spaces, this app's Prompt Lab
+### Embeddings, vector DBs and RAG | I
+ROW: Local :: Chroma, FAISS or Qdrant (open source) + sentence-transformers
+ROW: Online :: This app's RAG Lab (runs in your browser), Google Colab
+### Fine-tuning | A
+ROW: Local :: Needs a GPU; use Unsloth or Hugging Face TRL
+ROW: Online :: Google Colab or Kaggle free GPUs with small models (0.5B–3B)
+### Deployment | I
+ROW: Local :: Docker Desktop (free for personal use), FastAPI, Streamlit
+ROW: Online :: GitHub Pages (static sites), Hugging Face Spaces, Streamlit Community Cloud
+---
+
+## r-learn | book | Free courses and guides | Hand-picked, all free to learn
+LINK: Python official tutorial :: https://docs.python.org/3/tutorial/ :: The official beginner tutorial :: Free
+LINK: CS50's Introduction to Programming with Python :: https://cs50.harvard.edu/python/ :: Harvard's free Python course :: Free
+LINK: freeCodeCamp :: https://www.freecodecamp.org/learn :: Free coding curriculum and certifications :: Free
+LINK: Kaggle Learn :: https://www.kaggle.com/learn :: Python, Pandas, SQL, ML micro-courses :: Free
+LINK: SQLBolt :: https://sqlbolt.com :: Interactive SQL lessons :: Free
+LINK: Khan Academy statistics :: https://www.khanacademy.org/math/statistics-probability :: Statistics and probability :: Free
+LINK: 3Blue1Brown neural networks :: https://www.3blue1brown.com/topics/neural-networks :: Visual intuition for deep learning :: Free
+LINK: Google Machine Learning Crash Course :: https://developers.google.com/machine-learning/crash-course :: Fast practical ML course :: Free
+LINK: fast.ai Practical Deep Learning :: https://course.fast.ai :: Top-down deep learning course :: Free
+LINK: Neural Networks: Zero to Hero :: https://karpathy.ai/zero-to-hero.html :: Build GPT from scratch with Andrej Karpathy :: Free
+LINK: Hugging Face Learn :: https://huggingface.co/learn :: LLM, agents, audio, vision and more courses :: Free
+LINK: Generative AI for Beginners (Microsoft) :: https://github.com/microsoft/generative-ai-for-beginners :: 21-lesson GenAI course :: Free
+LINK: Anthropic courses :: https://github.com/anthropics/courses :: Prompting, API and tool-use notebooks :: Free
+LINK: Anthropic prompt engineering guide :: https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview :: Official prompting techniques :: Free
+LINK: OpenAI Cookbook :: https://cookbook.openai.com :: Practical API examples :: Free
+LINK: DeepLearning.AI short courses :: https://www.deeplearning.ai/short-courses/ :: 1–2 hour GenAI courses :: Free
+LINK: LangChain Academy :: https://academy.langchain.com :: LangGraph and agents courses :: Free
+LINK: MIT Introduction to Deep Learning :: https://introtodeeplearning.com :: MIT 6.S191 lectures and labs :: Free
+LINK: LLM Zoomcamp :: https://github.com/DataTalksClub/llm-zoomcamp :: RAG and LLM apps course :: Free
+---
+
+## r-tools | boxes | Free tools to build projects | Open source or free tiers; paid upgrades are always optional
+LINK: Google Colab :: https://colab.research.google.com :: Notebooks in the browser with free GPU time :: Free
+LINK: Kaggle Notebooks :: https://www.kaggle.com/code :: Notebooks, datasets and weekly GPU quota :: Free
+LINK: VS Code :: https://code.visualstudio.com :: Code editor :: Free
+LINK: GitHub :: https://github.com :: Code hosting, Pages and Actions :: Free plan
+LINK: Google AI Studio :: https://aistudio.google.com :: Free Gemini API key with rate limits :: Free tier
+LINK: Ollama :: https://ollama.com :: Run open models locally :: Open source
+LINK: LM Studio :: https://lmstudio.ai :: Desktop app for local models :: Free
+LINK: Hugging Face :: https://huggingface.co :: Models, datasets and Spaces :: Free plan
+LINK: Chroma :: https://www.trychroma.com :: Open-source vector database :: Open source
+LINK: Qdrant :: https://qdrant.tech :: Open-source vector database :: Open source
+LINK: LangChain / LangGraph :: https://www.langchain.com :: Frameworks for LLM apps and agents :: Open source
+LINK: LlamaIndex :: https://www.llamaindex.ai :: Data framework for RAG :: Open source
+LINK: Streamlit :: https://streamlit.io :: Python web apps; free Community Cloud :: Open source
+LINK: Gradio :: https://www.gradio.app :: Quick ML demos :: Open source
+LINK: FastAPI :: https://fastapi.tiangolo.com :: Python APIs :: Open source
+LINK: Langfuse :: https://langfuse.com :: LLM observability (self-host free) :: Open source
+LINK: Excalidraw :: https://excalidraw.com :: Draw architecture diagrams :: Free
+LINK: draw.io :: https://app.diagrams.net :: Diagrams and flowcharts :: Free
+---
+
+## r-data | table | Free datasets | Real data for your projects
+LINK: Kaggle Datasets :: https://www.kaggle.com/datasets :: Thousands of community datasets :: Free
+LINK: Hugging Face Datasets :: https://huggingface.co/datasets :: Text, audio and image datasets :: Free
+LINK: UCI ML Repository :: https://archive.ics.uci.edu :: Classic ML datasets :: Free
+LINK: Open Government Data India :: https://data.gov.in :: Indian government open data :: Free
+LINK: Our World in Data :: https://ourworldindata.org :: Global data with charts :: Free
+---
+
+## r-interview | target | Free interview practice | Coding, SQL and mock interviews
+LINK: LeetCode :: https://leetcode.com/problemset/ :: Coding and SQL problems (free problems available) :: Free plan
+LINK: NeetCode roadmap :: https://neetcode.io/roadmap :: Structured problem list with free videos :: Free
+LINK: HackerRank :: https://www.hackerrank.com :: SQL and Python practice :: Free
+LINK: Pramp / Exponent free mocks :: https://www.pramp.com :: Peer mock interviews (check current availability) :: Check if free
+---

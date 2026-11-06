@@ -1,0 +1,74 @@
+## n-de | database | Data Engineering | Build the pipelines that feed every AI system
+WHY: AI is only as good as its data. Data engineers build reliable pipelines, warehouses and lakes; demand stays strong because every GenAI project needs clean, fresh data.
+POINT: Core skills: advanced SQL, Python, data modelling (star schema), batch and streaming pipelines, orchestration, data quality.
+POINT: Tools (open source / free): PostgreSQL, Apache Spark, Apache Kafka, Apache Airflow, dbt Core, DuckDB, Apache Iceberg.
+POINT: Roadmap: SQL mastery → Python ETL → warehouse modelling → Airflow + dbt → Spark → streaming with Kafka → cloud basics.
+LINK: Data Engineering Zoomcamp :: https://github.com/DataTalksClub/data-engineering-zoomcamp :: Free cohort-based course with projects :: Free course
+LINK: dbt Learn :: https://learn.getdbt.com :: Free official dbt courses :: Free course
+LINK: DuckDB docs :: https://duckdb.org/docs :: Fast local analytics database for practice :: Open source
+
+## n-mlops | rocket | MLOps & LLMOps | Run models reliably in production
+WHY: Companies have many prototypes and few production systems. People who can deploy, monitor and evaluate models are in high demand.
+POINT: Core skills: Docker, CI/CD, experiment tracking, model registries, feature stores, monitoring, evaluation pipelines, cost control.
+POINT: Tools (open source / free): MLflow, DVC, GitHub Actions, Prometheus, Grafana, Langfuse, Arize Phoenix, vLLM.
+LINK: MLOps Zoomcamp :: https://github.com/DataTalksClub/mlops-zoomcamp :: Free hands-on MLOps course :: Free course
+LINK: Made With ML :: https://madewithml.com :: Free guide to production ML :: Free course
+LINK: LLM Zoomcamp :: https://github.com/DataTalksClub/llm-zoomcamp :: Free course on RAG and LLM apps :: Free course
+
+## n-cloud | globe | Cloud for AI | AWS, Google Cloud and Azure AI services
+WHY: Most enterprise AI runs in the cloud. Knowing one cloud's AI, storage, compute and security services makes you far more employable.
+POINT: Learn: compute (VMs, containers, serverless), storage, IAM and security, managed AI services, vector search services, cost management.
+POINT: Free learning paths exist; free tiers are optional and need careful budget alerts.
+LINK: Google Cloud Skills Boost :: https://www.cloudskillsboost.google :: Free learning paths and some free labs :: Free course
+LINK: Microsoft Learn :: https://learn.microsoft.com/training :: Free Azure AI learning paths :: Free course
+LINK: AWS Skill Builder :: https://skillbuilder.aws :: Free digital courses :: Free course
+
+## n-pm | target | AI Product Management | Decide what AI should build and why
+WHY: Every company needs people who understand both users and AI capabilities, and can measure whether AI features actually work. A strong fit for PMO and client-facing backgrounds.
+POINT: Skills: problem discovery, AI feasibility, evaluation metrics, cost modelling, risk and compliance, roadmaps, stakeholder communication.
+POINT: Practise: write PRDs for AI features with success metrics, evaluation plans and guardrails.
+LINK: Google AI Essentials (audit options vary) :: https://grow.google/ai-essentials :: Introductory AI skills for professionals :: Check if free
+LINK: Lenny's Newsletter free posts :: https://www.lennysnewsletter.com :: Product thinking; many free articles :: Free articles
+
+## n-cv | image | Computer Vision | Teach machines to see
+WHY: Vision powers manufacturing inspection, medical imaging, retail analytics and self-driving systems, and multimodal LLMs are expanding it further.
+POINT: Skills: CNNs, vision transformers, object detection, segmentation, OCR, data annotation, edge deployment.
+POINT: Tools: OpenCV, PyTorch, torchvision, Ultralytics YOLO (check licence), Hugging Face vision models.
+LINK: OpenCV tutorials :: https://docs.opencv.org/4.x/d9/df8/tutorial_root.html :: Free official tutorials :: Open source
+LINK: Hugging Face Computer Vision Course :: https://huggingface.co/learn/computer-vision-course :: Free community course :: Free course
+
+## n-speech | mic | Speech & Audio AI | Voice assistants, transcription and audio generation
+WHY: Voice agents for customer service, healthcare notes and accessibility are growing quickly.
+POINT: Skills: ASR (speech-to-text), TTS, diarisation, real-time streaming, voice agent latency design.
+LINK: Hugging Face Audio Course :: https://huggingface.co/learn/audio-course :: Free audio ML course :: Free course
+LINK: Whisper on GitHub :: https://github.com/openai/whisper :: Open-source speech recognition model :: Open source
+
+## n-robotics | cpu | Robotics & Embodied AI | AI that acts in the physical world
+WHY: Foundation models are moving into robots, drones and warehouses. A long-term, high-growth field.
+POINT: Skills: Python/C++, ROS 2, control basics, simulation, reinforcement learning, vision-language-action models.
+LINK: ROS 2 documentation :: https://docs.ros.org :: Free official robotics framework docs :: Open source
+LINK: Hugging Face LeRobot :: https://github.com/huggingface/lerobot :: Open-source robot learning library :: Open source
+
+## n-edge | sliders | Edge & On-device AI | Run AI on phones, laptops and devices
+WHY: Privacy, cost and latency are pushing small models onto devices, from phones to microcontrollers like the ESP32.
+POINT: Skills: quantisation, model compression, ONNX, TensorFlow Lite / LiteRT, WebGPU and WASM in the browser, llama.cpp.
+LINK: llama.cpp :: https://github.com/ggml-org/llama.cpp :: Run LLMs locally on CPUs and GPUs :: Open source
+LINK: Transformers.js :: https://huggingface.co/docs/transformers.js :: Run models in the browser :: Open source
+
+## n-sec | shield | AI Security & Red-teaming | Protect AI systems and use AI for security
+WHY: As AI agents gain access to tools and data, security skills for LLM apps are scarce and valuable.
+POINT: Skills: prompt injection, data exfiltration, jailbreaks, supply-chain risks, threat modelling, red-teaming, secure tool design.
+LINK: OWASP Top 10 for LLM Applications :: https://genai.owasp.org :: Free community security guidance :: Free guide
+LINK: NIST AI Risk Management Framework :: https://www.nist.gov/itl/ai-risk-management-framework :: Free official framework :: Free guide
+
+## n-analytics | chart | Data Science & Analytics | Turn data into decisions
+WHY: Analysts who can combine SQL, statistics, dashboards and LLM-assisted analysis are in demand in every industry.
+POINT: Skills: SQL, statistics, experimentation, visualisation, storytelling, BI tools.
+LINK: Kaggle Learn :: https://www.kaggle.com/learn :: Free micro-courses with notebooks :: Free course
+LINK: Looker Studio :: https://lookerstudio.google.com :: Free dashboards with a Google account :: Free tool
+
+## n-kg | magnet | Knowledge Graphs & Search | Structure knowledge for smarter retrieval
+WHY: GraphRAG and enterprise search need entity graphs and strong search engineering.
+POINT: Skills: graph modelling, Cypher or SPARQL, entity extraction, search relevance (BM25, learning-to-rank).
+LINK: Neo4j GraphAcademy :: https://graphacademy.neo4j.com :: Free graph database courses :: Free course
+LINK: OpenSearch docs :: https://opensearch.org/docs/latest :: Open-source search engine :: Open source

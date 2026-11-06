@@ -1,0 +1,31 @@
+## news-curated | newspaper | Recent AI launches | Curated on 5 November 2026. Always open the source to confirm details.
+LINK: Tencent releases Hy4 open-source LLM (4 Nov 2026) :: https://www.tencent.com/tencent-launches-hy4-joining-the-ranks-of-the-worlds-leading-open-source-ai-models/ :: Reasoning, vision and tool-calling model; weights announced as coming soon :: Model
+LINK: Claude Personal Finance launches (5 Nov 2026) :: https://emergent.sh/news/claude-personal-finance-tool-launches-bank :: Read-only bank-account connection for paid Claude plans :: Product
+LINK: Akamai Inference and Agent Sandbox beta (Nov 2026) :: https://aiagentstore.ai/ai-agent-news/this-week :: Managed model serving and sandbox for agents :: Infrastructure
+LINK: SAP Joule Studio agent updates (Nov 2026) :: https://aiagentstore.ai/ai-agent-news/this-week :: No-code and pro-code enterprise agent building :: Enterprise
+LINK: Model release timeline :: https://www.promptzone.com/ai-model-releases :: Auto-updated timeline of new models :: Tracker
+LINK: LLM updates feed :: https://lmmarketcap.com/llm-updates :: Daily model releases and AI news :: Tracker
+
+## news-sources | globe | Where to follow AI news | Official sources first, then trackers and free newsletters
+LINK: OpenAI News :: https://openai.com/news :: Official announcements :: Official
+LINK: Anthropic News :: https://www.anthropic.com/news :: Official announcements :: Official
+LINK: Google DeepMind blog :: https://deepmind.google/discover/blog/ :: Research and model launches :: Official
+LINK: Google AI blog :: https://blog.google/technology/ai/ :: Product and model news :: Official
+LINK: Meta AI blog :: https://ai.meta.com/blog/ :: Llama and research news :: Official
+LINK: Hugging Face blog :: https://huggingface.co/blog :: Open-source models and tutorials :: Official
+LINK: Hugging Face daily papers :: https://huggingface.co/papers :: Trending research papers :: Research
+LINK: LMArena leaderboard :: https://lmarena.ai :: Community model rankings; try models free :: Tracker
+LINK: Artificial Analysis :: https://artificialanalysis.ai :: Model quality, speed and price comparisons :: Tracker
+LINK: The Batch (DeepLearning.AI) :: https://www.deeplearning.ai/the-batch/ :: Free weekly AI newsletter :: Newsletter
+LINK: Import AI :: https://importai.substack.com :: Free weekly research newsletter :: Newsletter
+
+## news-try | sparkles | Try AI tools for free | Free plans to test new models and features
+LINK: Google AI Studio :: https://aistudio.google.com :: Try the newest Gemini models free :: Free
+LINK: Google NotebookLM :: https://notebooklm.google.com :: Chat with your documents, audio overviews :: Free plan
+LINK: Claude :: https://claude.ai :: Free plan available :: Free plan
+LINK: ChatGPT :: https://chatgpt.com :: Free plan available :: Free plan
+LINK: Gemini :: https://gemini.google.com :: Free plan available :: Free plan
+LINK: Microsoft Copilot :: https://copilot.microsoft.com :: Free plan available :: Free plan
+LINK: Perplexity :: https://www.perplexity.ai :: AI search, free plan :: Free plan
+LINK: Hugging Face Spaces :: https://huggingface.co/spaces :: Thousands of free AI demos :: Free
+LINK: LMArena :: https://lmarena.ai :: Compare models side by side for free :: Free

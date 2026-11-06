@@ -1,0 +1,204 @@
+# MODULE QUIZZES. One block per sprint/module id. MCQ: question ;; A ;; B ;; C ;; D => correct index (0–3) => explanation
+
+## F01 | target | Quiz | Sprint 1
+MCQ: An LLM generates a reply by… ;; Looking up the answer in a database ;; Predicting one token at a time and feeding it back in ;; Copying the closest web page ;; Running a fixed set of rules => 1 => LLMs are autoregressive: each new token is appended and used to predict the next.
+MCQ: What does self-attention let each token do? ;; Skip the rest of the sentence ;; Weigh every other token to build context ;; Store facts permanently ;; Translate itself into images => 1 => Attention scores decide how much each token draws from every other token.
+MCQ: Which model family is decoder-only? ;; BERT ;; T5 ;; GPT and Claude ;; ResNet => 2 => GPT, Claude, Llama and Gemini generate text with decoder-only transformers.
+MCQ: You need repeatable, factual invoice extraction. Temperature should be… ;; 1.5 ;; 1.0 ;; About 0 ;; It does not matter => 2 => Low temperature makes the output focused and repeatable.
+MCQ: The best single fix for hallucinations about company policy is… ;; Higher temperature ;; A longer system prompt ;; Grounding answers in retrieved documents with citations ;; A bigger context window alone => 2 => RAG with citations anchors answers in real sources.
+
+## F02 | target | Quiz | Sprint 2
+MCQ: Which structure gives O(1) average lookup by key? ;; list ;; tuple ;; dict ;; string => 2 => Dicts are hash tables with constant average lookup.
+MCQ: What is printed? `nums = [3, 1, 2]; nums.sort(); print(nums[-1])` ;; 1 ;; 2 ;; 3 ;; Error => 2 => After sorting the list is [1, 2, 3]; index -1 is the last item.
+MCQ: Why is `def f(x, items=[])` risky? ;; Lists cannot be defaults ;; The same list is shared across calls ;; It is slower ;; It raises a syntax error => 1 => Defaults are created once, so mutations persist between calls.
+MCQ: Best tool to run 50 independent API calls concurrently? ;; multiprocessing ;; asyncio.gather ;; A for loop ;; recursion => 1 => API calls are I/O-bound, ideal for async concurrency.
+MCQ: Time complexity of the hash-map two-sum solution? ;; O(n²) ;; O(n log n) ;; O(n) ;; O(1) => 2 => One pass with constant-time dictionary lookups.
+
+## F03 | target | Quiz | Sprint 3
+MCQ: Which clause runs first? ;; SELECT ;; WHERE ;; FROM / JOIN ;; ORDER BY => 2 => The engine reads tables first, then filters, groups and selects.
+MCQ: Find customers who never ordered. Which pattern? ;; INNER JOIN ;; LEFT JOIN … WHERE o.id IS NULL ;; CROSS JOIN ;; GROUP BY name => 1 => A left anti-join keeps customers with no matching order.
+MCQ: Salaries 100, 100, 90. DENSE_RANK gives… ;; 1, 2, 3 ;; 1, 1, 3 ;; 1, 1, 2 ;; 2, 2, 1 => 2 => Ties share a rank with no gap.
+MCQ: Top 2 earners per department needs… ;; GROUP BY dept LIMIT 2 ;; ROW_NUMBER() OVER (PARTITION BY dept ORDER BY salary DESC) ;; HAVING COUNT(*) = 2 ;; DISTINCT salary => 1 => Number rows within each department, then keep rn ≤ 2.
+MCQ: `WHERE city = NULL` returns… ;; Rows with missing city ;; No rows ;; All rows ;; An error always => 1 => Comparisons with NULL are unknown; use IS NULL.
+
+## F04 | target | Quiz | Sprint 4
+MCQ: Train accuracy 98%, test accuracy 70%. This is… ;; Underfitting ;; Overfitting ;; Data drift ;; A perfect model => 1 => A big train-test gap signals memorisation.
+MCQ: For fraud detection where missing fraud is very costly, prioritise… ;; Precision ;; Recall ;; Accuracy ;; R² => 1 => Recall measures how many real fraud cases you catch.
+MCQ: Random forest reduces mainly… ;; Bias ;; Variance ;; Latency ;; Data size => 1 => Bagging many trees averages out variance.
+MCQ: Fitting a scaler on the whole dataset before splitting causes… ;; Faster training ;; Data leakage ;; Better generalisation ;; Nothing => 1 => Test information leaks into training statistics.
+MCQ: Median is preferred over mean when… ;; Data has no variance ;; There are extreme outliers ;; Data is categorical ;; You need a sum => 1 => Median is robust to outliers.
+
+## F05 | target | Quiz | Sprint 5
+MCQ: Backpropagation computes… ;; The learning rate ;; Gradients of the loss with respect to each weight ;; Token IDs ;; Batch size => 1 => It applies the chain rule from loss back to weights.
+MCQ: Which activation is standard in transformer feed-forward layers? ;; Sigmoid ;; GELU / SwiGLU ;; Step function ;; Linear only => 1 => Smooth ReLU-like functions dominate modern transformers.
+MCQ: Why did transformers replace RNNs for language? ;; They use less data ;; Parallel training and better long-range context ;; They need no GPUs ;; They have no parameters => 1 => Attention processes all tokens at once and links distant words.
+MCQ: Two sentences with cosine similarity 0.92 are… ;; Opposite in meaning ;; Very similar in meaning ;; Unrelated ;; Identical byte for byte => 1 => Close to 1 means the vectors point the same way.
+MCQ: Subword tokenisation mainly helps with… ;; Image quality ;; Rare words and typos using a fixed vocabulary ;; Faster GPUs ;; Removing stopwords => 1 => Unknown words split into known pieces.
+
+## F06 | target | Quiz | Sprint 6
+MCQ: Giving three worked examples inside the prompt is… ;; Zero-shot ;; Few-shot ;; Fine-tuning ;; RLHF => 1 => Examples in the prompt are few-shot prompting.
+MCQ: Your code must parse the model's output. Best approach? ;; Ask nicely for JSON ;; Structured output / JSON schema plus validation and retry ;; Higher temperature ;; Longer answers => 1 => Schema mode plus a validator is reliable.
+MCQ: Wrapping user documents in XML tags mainly helps… ;; Speed ;; Separate instructions from data ;; Reduce cost to zero ;; Translate text => 1 => The model can tell data from commands, which also resists injection.
+MCQ: Chain-of-thought is most useful for… ;; Simple greetings ;; Multi-step reasoning and maths ;; Image generation ;; Token counting => 1 => Step-by-step reasoning improves multi-step accuracy.
+MCQ: The right way to improve a prompt is… ;; Change many things at once ;; Test on a fixed set of inputs and change one thing at a time ;; Trust one good output ;; Make it as long as possible => 1 => Treat prompts like code: test, version, iterate.
+
+## F07 | target | Quiz | Sprint 7
+MCQ: LLM APIs are stateless. To keep chat memory you… ;; Do nothing ;; Resend relevant history each call ;; Increase temperature ;; Use a bigger model => 1 => Each request must include the context the model needs.
+MCQ: In tool calling, the model… ;; Executes your Python ;; Returns a tool name and JSON arguments for your code to run ;; Accesses your database directly ;; Writes to disk => 1 => Your application executes tools and returns results.
+MCQ: A 429 error means… ;; Bad API key ;; Rate limit; retry with backoff ;; Server crashed permanently ;; Wrong model name => 1 => 429 is "too many requests".
+MCQ: Cheapest way to cut cost on easy classification calls? ;; Use the biggest model ;; Route them to a smaller model ;; Raise max tokens ;; Disable caching => 1 => Model routing matches cost to difficulty.
+MCQ: Streaming responses improve… ;; Accuracy ;; Perceived latency ;; Token price ;; Context length => 1 => Users see text immediately even if total time is similar.
+
+## F08 | target | Quiz | Sprint 8
+MCQ: Correct RAG order? ;; Embed → chunk → load → retrieve ;; Load → chunk → embed → index → retrieve → generate ;; Generate → retrieve → embed ;; Index → load → chunk => 1 => Ingest and index first, then retrieve and generate per query.
+MCQ: Which search best finds an exact error code like "E-404"? ;; Dense vectors only ;; BM25 keyword or hybrid search ;; Random sampling ;; Image search => 1 => Exact strings favour keyword matching; hybrid combines both.
+MCQ: A reranker is applied to… ;; Every document in the corpus ;; The top retrieved candidates ;; Only the question ;; The final answer => 1 => Cross-encoders are slow, so they re-score a shortlist.
+MCQ: Faithfulness measures whether… ;; The answer is fast ;; Claims are supported by the retrieved context ;; Chunks are large ;; The user is satisfied => 1 => It checks grounding in context.
+MCQ: Employees see documents they should not. Fix it with… ;; Bigger chunks ;; Access-control metadata filters at query time ;; Lower temperature ;; More embeddings => 1 => Permission-aware retrieval filters by user identity.
+
+## F09 | target | Quiz | Sprint 9
+MCQ: The ReAct loop is… ;; Retrieve, Embed, Answer ;; Think, Act, Observe ;; Read, Edit, Approve ;; Rank, Evaluate, Act => 1 => Reasoning and tool actions alternate with observations.
+MCQ: A fixed invoice-processing pipeline should usually be… ;; A multi-agent team ;; A deterministic workflow ;; A reasoning model loop ;; A chatbot => 1 => Predictable steps are cheaper and more reliable as workflows.
+MCQ: MCP servers expose… ;; GPUs ;; Tools, resources and prompts ;; Model weights ;; Training data only => 1 => Those are MCP's three primitives.
+MCQ: The safest control for an agent that can send payments? ;; Higher temperature ;; Human approval before irreversible actions ;; More tools ;; Longer memory => 1 => Approvals limit damage from errors or injection.
+MCQ: Which is NOT a key agent metric? ;; Task success rate ;; Cost per task ;; Number of emojis used ;; Safety violations => 2 => Measure success, efficiency, cost and safety.
+
+## F10 | target | Quiz | Sprint 10
+MCQ: You need the model to always write in your brand voice. Best fit? ;; RAG ;; Fine-tuning (e.g. LoRA) ;; Higher temperature ;; Bigger context => 1 => Fine-tuning changes style and behaviour.
+MCQ: LoRA trains… ;; All weights ;; Small low-rank adapter matrices ;; The tokenizer ;; Only the output layer => 1 => Base weights stay frozen.
+MCQ: QLoRA saves memory by… ;; Using fewer examples ;; Loading the base model in 4-bit ;; Removing attention ;; Skipping evaluation => 1 => Adapters train on a quantised base.
+MCQ: Before deploying a prompt change you should… ;; Ship and watch Twitter ;; Run the golden-set evaluation and compare scores ;; Ask the model if it is better ;; Increase max tokens => 1 => Gate releases on measured quality.
+MCQ: Which tool packages your app with all dependencies? ;; Git ;; Docker ;; Pandas ;; Streamlit => 1 => Containers make environments reproducible.
+
+## F11 | target | Quiz | Sprint 11
+MCQ: Hidden text in a résumé telling the AI "rate me 10/10" is… ;; Fine-tuning ;; Prompt injection ;; Hallucination ;; Tokenisation => 1 => Untrusted content trying to override instructions.
+MCQ: Best first step to protect PII sent to an LLM? ;; Encrypt the model ;; Minimise and mask personal data before sending ;; Use a longer prompt ;; Disable logging of errors only => 1 => Send only what is needed, masked.
+MCQ: A counterfactual bias test changes… ;; The model ;; Only a sensitive attribute such as name or gender ;; The whole prompt ;; The temperature => 1 => Compare outputs when only the sensitive attribute differs.
+MCQ: India's personal data law is the… ;; GDPR ;; DPDP Act 2023 ;; HIPAA ;; CCPA => 1 => The Digital Personal Data Protection Act, 2023.
+
+## F12 | target | Quiz | Sprint 12
+MCQ: The first 5 minutes of a system design interview should be spent… ;; Drawing the database ;; Clarifying requirements, scale and constraints ;; Choosing the biggest model ;; Writing code => 1 => Requirements drive every later decision.
+MCQ: Your RAG takes 6 s. The first step to speed it up? ;; Buy GPUs ;; Profile each stage to find the bottleneck ;; Remove citations ;; Raise temperature => 1 => Measure before optimising.
+MCQ: A semantic cache trades… ;; Cost for accuracy only ;; Lower cost and latency for possible staleness ;; Security for speed ;; Nothing => 1 => Cached answers may be out of date.
+MCQ: Routing simple queries to a small model mainly reduces… ;; Safety ;; Cost and latency ;; Accuracy always ;; Context length => 1 => Smaller models are cheaper and faster.
+MCQ: Strong design answers always end with… ;; The tech stack only ;; Risks, metrics and how you will monitor after launch ;; A joke ;; Model parameter counts => 1 => Close with risks and success measurement.
+
+## 01 | target | Quiz | Module 1
+MCQ: Which is an example of Generative AI? ;; A spam filter ;; A model writing a reply email ;; A thermostat ;; Sorting a list => 1 => It creates new content.
+MCQ: Training a game AI with points for winning is… ;; Supervised learning ;; Unsupervised learning ;; Reinforcement learning ;; Transfer learning => 2 => Learning from rewards.
+MCQ: The 2017 invention behind modern LLMs is the… ;; CNN ;; Transformer ;; Decision tree ;; GAN => 1 => "Attention Is All You Need" introduced it.
+MCQ: AGI today is… ;; Widely deployed ;; A research goal, not yet achieved ;; Another name for ChatGPT ;; Banned => 1 => Current systems are narrow AI.
+
+## 02 | target | Quiz | Module 2
+MCQ: A step-by-step recipe to solve a problem is… ;; A compiler ;; An algorithm ;; A server ;; A bug => 1 => Algorithms are precise instructions.
+MCQ: Forgetting a closing bracket causes a… ;; Logic error ;; Runtime error ;; Syntax error ;; Network error => 2 => The code breaks grammar rules.
+MCQ: The diamond shape in a flowchart means… ;; Start ;; Process ;; Decision ;; Output => 2 => Yes/no decisions use diamonds.
+MCQ: In a web request, the phone app acts as the… ;; Server ;; Client ;; Database ;; Compiler => 1 => The client sends requests to the server.
+
+## 03 | target | Quiz | Module 3
+MCQ: What does `type(249.5)` return? ;; int ;; float ;; str ;; bool => 1 => Decimal numbers are floats.
+MCQ: `input()` always returns… ;; An int ;; A float ;; A string ;; None => 2 => Convert with int() or float() when needed.
+MCQ: Which keeps only unique values? ;; list ;; set ;; tuple ;; string => 1 => Sets store unique items.
+MCQ: Which keyword produces values one at a time? ;; return ;; yield ;; lambda ;; pass => 1 => yield creates a generator.
+
+## 04 | target | Quiz | Module 4
+MCQ: Which command reads data? ;; INSERT ;; UPDATE ;; SELECT ;; DROP => 2 => SELECT is the query command.
+MCQ: A FOREIGN KEY ensures… ;; Values are unique ;; Values match a key in another table ;; Values are never NULL ;; Faster queries => 1 => It enforces referential integrity.
+MCQ: Which runs on groups after aggregation? ;; WHERE ;; HAVING ;; LIMIT ;; FROM => 1 => HAVING filters aggregated groups.
+MCQ: In ACID, Atomicity means… ;; Data is encrypted ;; All steps succeed or none do ;; Queries are fast ;; Tables are small => 1 => All-or-nothing transactions.
+
+## 05 | target | Quiz | Module 5
+MCQ: Softmax outputs always sum to… ;; 0 ;; 1 ;; 100 ;; The number of classes => 1 => They form a probability distribution.
+MCQ: In gradient descent, a learning rate that is too large… ;; Converges perfectly ;; Overshoots and may diverge ;; Stops training ;; Has no effect => 1 => Steps jump past the minimum.
+MCQ: Standard deviation measures… ;; Average ;; Spread ;; Maximum ;; Correlation => 1 => How far values typically sit from the mean.
+MCQ: Ice-cream sales and sunburns rise together. This shows… ;; Causation ;; Correlation, not necessarily causation ;; Overfitting ;; A normal distribution => 1 => A third factor (summer) drives both.
+
+## 06 | target | Quiz | Module 6
+MCQ: Which shows column types and missing values in Pandas? ;; df.head() ;; df.info() ;; df.sum() ;; df.plot() => 1 => info() summarises types and non-null counts.
+MCQ: Pandas equivalent of SQL GROUP BY? ;; df.merge() ;; df.groupby() ;; df.pivot() ;; df.sort_values() => 1 => groupby() then aggregate.
+MCQ: Best chart for a trend over time? ;; Pie ;; Line ;; Scatter ;; Heatmap => 1 => Line charts show change over time.
+MCQ: In Pandas, combine filter conditions with… ;; and / or ;; & and | with brackets ;; && and || ;; commas => 1 => Element-wise operators need brackets around each condition.
+
+## 07 | target | Quiz | Module 7
+MCQ: Predicting a house price is… ;; Classification ;; Regression ;; Clustering ;; Reinforcement => 1 => The output is a number.
+MCQ: K-Means is… ;; Supervised ;; Unsupervised ;; Reinforcement ;; A neural network => 1 => It groups unlabelled data.
+MCQ: Precision is… ;; TP / (TP + FN) ;; TP / (TP + FP) ;; (TP + TN) / all ;; FP / all => 1 => Of predicted positives, how many were right.
+MCQ: Cross-validation gives… ;; Faster training ;; A more reliable performance estimate ;; More data ;; Fewer features => 1 => Averaging over folds reduces luck.
+
+## 08 | target | Quiz | Module 8
+MCQ: One full pass through the training data is an… ;; Iteration ;; Epoch ;; Batch ;; Layer => 1 => An epoch covers the whole dataset.
+MCQ: Dropout helps reduce… ;; Underfitting ;; Overfitting ;; Latency ;; Token cost => 1 => It stops the network relying on a few neurons.
+MCQ: CNNs are best known for… ;; Tabular data ;; Images ;; SQL queries ;; Speech synthesis only => 1 => Convolutions detect visual patterns.
+MCQ: Reusing a pre-trained model for a new task is… ;; Data leakage ;; Transfer learning ;; Bagging ;; Quantisation => 1 => It transfers learned features.
+
+## 09 | target | Quiz | Module 9
+MCQ: Lemmatisation turns "studies" into… ;; studi ;; study ;; studies ;; stud => 1 => Lemmas are dictionary base forms.
+MCQ: TF-IDF gives high weight to words that are… ;; Common in every document ;; Frequent here but rare elsewhere ;; Short ;; Stopwords => 1 => Distinctive words score highest.
+MCQ: NER extracts… ;; Sentiment ;; Names of people, places, organisations, dates ;; Summaries ;; Translations => 1 => Named entity recognition finds entities.
+MCQ: king − man + woman ≈ queen illustrates… ;; Tokenisation ;; Word embeddings capturing meaning ;; Overfitting ;; Stemming => 1 => Vector arithmetic on meaning.
+
+## 10 | target | Quiz | Module 10
+MCQ: In English, 100 tokens is roughly… ;; 25 words ;; 75 words ;; 300 words ;; 1,000 words => 1 => About ¾ of a word per token.
+MCQ: The context window is… ;; The model's long-term memory ;; How many tokens it can see per request ;; Its training data size ;; The GPU memory => 1 => Prompt plus answer must fit inside it.
+MCQ: RLHF trains a model using… ;; Only more internet text ;; Human preference comparisons ;; Images ;; SQL logs => 1 => Humans rank outputs to teach preferences.
+MCQ: Quantisation mainly… ;; Adds parameters ;; Shrinks models by using fewer bits per weight ;; Improves accuracy always ;; Removes attention => 1 => Smaller, faster, slightly less accurate.
+
+## 11 | target | Quiz | Module 11
+MCQ: R-T-C-F-R stands for… ;; Read, Think, Check, Fix, Repeat ;; Role, Task, Context, Format, Rules ;; Retrieve, Tag, Chunk, Filter, Rank ;; None of these => 1 => The five parts of a strong prompt.
+MCQ: Saying what TO do instead of what NOT to do… ;; Usually works better ;; Confuses models ;; Costs more ;; Is required by APIs => 0 => Positive instructions are clearer.
+MCQ: Breaking a task into a pipeline of smaller prompts is… ;; Few-shot ;; Prompt chaining ;; Self-consistency ;; RLHF => 1 => Each step feeds the next.
+MCQ: Self-consistency means… ;; One sample at temperature 0 ;; Sampling several answers and taking the majority ;; Asking the model to agree with you ;; Repeating the prompt twice => 1 => Voting improves reasoning accuracy.
+
+## 12 | target | Quiz | Module 12
+MCQ: Where should API keys live? ;; In your code on GitHub ;; In environment variables or a .env file kept private ;; In a screenshot ;; In the prompt => 1 => Never commit secrets.
+MCQ: The three message roles are… ;; admin, user, bot ;; system, user, assistant ;; input, output, log ;; client, server, proxy => 1 => System sets rules; user asks; assistant replies.
+MCQ: Exponential backoff means retrying after… ;; The same delay ;; Increasing delays like 1, 2, 4, 8 s ;; Never ;; Random huge delays => 1 => Waits grow to ease load.
+MCQ: Ollama lets you… ;; Pay for GPUs ;; Run open models locally for free ;; Host websites ;; Train BERT from scratch => 1 => Local inference, offline.
+
+## 13 | target | Quiz | Module 13
+MCQ: An embedding is… ;; A compressed image ;; A list of numbers capturing meaning ;; A database index ;; A prompt template => 1 => Meaning as coordinates.
+MCQ: Chunk overlap prevents… ;; High cost ;; Losing context at chunk boundaries ;; Duplicate documents ;; Slow GPUs => 1 => Ideas split across cuts stay intact.
+MCQ: HNSW is… ;; A tokenizer ;; An approximate nearest-neighbour index ;; A loss function ;; A vector database brand => 1 => It speeds up similarity search.
+MCQ: Metadata filtering lets you… ;; Change embeddings ;; Restrict search by fields like date or department ;; Train faster ;; Skip chunking => 1 => Narrow results before ranking.
+
+## 14 | target | Quiz | Module 14
+MCQ: RAG is like… ;; A closed-book exam ;; An open-book exam ;; Memorising answers ;; Guessing => 1 => The model looks up the right pages first.
+MCQ: HyDE embeds… ;; The user's name ;; A hypothetical ideal answer ;; Only keywords ;; The whole corpus => 1 => It improves retrieval for short queries.
+MCQ: Recall@k measures… ;; Answer fluency ;; Whether the right chunk is in the top k ;; Latency ;; Cost => 1 => A retrieval metric.
+MCQ: Answers come from an outdated policy. Best fix? ;; Fine-tune weekly ;; Re-index on updates and filter or boost by date ;; Raise temperature ;; Use more chunks => 1 => Keep the index fresh and prefer recent versions.
+
+## 15 | target | Quiz | Module 15
+MCQ: In LangChain, `prompt | llm | parser` is… ;; Bash piping ;; An LCEL chain ;; A SQL query ;; A Docker command => 1 => LCEL composes steps into a chain.
+MCQ: Best framework for stateful agents with loops and human approval? ;; Pandas ;; LangGraph ;; Matplotlib ;; Flask => 1 => LangGraph models workflows as graphs with state.
+MCQ: LlamaIndex is strongest at… ;; Image generation ;; Data loading and RAG ;; Training CNNs ;; Web hosting => 1 => It focuses on connecting LLMs to data.
+MCQ: When should you start with the plain SDK instead of a framework? ;; Never ;; When learning or when you want full control ;; Only for images ;; Only offline => 1 => Fewer moving parts, easier debugging.
+
+## 16 | target | Quiz | Module 16
+MCQ: An agent differs from a chatbot because it… ;; Uses emojis ;; Plans and takes actions with tools in a loop ;; Has a bigger model ;; Is always offline => 1 => Agents act, not just answer.
+MCQ: Short-term agent memory is usually… ;; A vector database ;; The current context window ;; A spreadsheet ;; The model weights => 1 => Recent messages in the prompt.
+MCQ: The orchestrator-workers pattern means… ;; One prompt only ;; A lead agent splits work among worker agents ;; Random tool calls ;; Human-only work => 1 => Delegation of subtasks.
+MCQ: MCP is often compared to… ;; HDMI ;; USB-C ;; Wi-Fi ;; Bluetooth => 1 => One standard plug for many tools.
+
+## 17 | target | Quiz | Module 17
+MCQ: Fine-tuning is best for changing… ;; Fresh facts daily ;; Style, format or a narrow skill ;; Website hosting ;; GPU drivers => 1 => Behaviour, not frequently changing knowledge.
+MCQ: Typical fine-tuning data format? ;; CSV of images ;; JSONL chat messages ;; PDF ;; SQL dump => 1 => One JSON example per line.
+MCQ: Distillation trains… ;; A bigger model from a smaller one ;; A small student to mimic a large teacher ;; A tokenizer ;; A database => 1 => Knowledge transfer to a cheaper model.
+MCQ: Catastrophic forgetting is… ;; Losing the dataset ;; Losing general skills after narrow fine-tuning ;; A GPU failure ;; A prompt error => 1 => Evaluate broad skills after training.
+
+## 18 | target | Quiz | Module 18
+MCQ: Diffusion models create images by… ;; Copying web images ;; Removing noise step by step guided by the prompt ;; Drawing vectors ;; Sorting pixels => 1 => They reverse a noising process.
+MCQ: In a GAN, the generator… ;; Detects fakes ;; Creates fake samples ;; Labels data ;; Compresses audio => 1 => It competes with the discriminator.
+MCQ: Inpainting means… ;; Extending the image border ;; Editing only a masked region ;; Upscaling ;; Removing colour => 1 => Change part of an image.
+MCQ: Whisper is used for… ;; Text-to-image ;; Speech-to-text ;; Music generation ;; Translation of images => 1 => Open-source speech recognition.
+
+## 19 | target | Quiz | Module 19
+MCQ: `git commit` does what? ;; Uploads to GitHub ;; Saves a snapshot locally ;; Deletes history ;; Creates a branch => 1 => Push uploads; commit saves.
+MCQ: LLM-as-judge is… ;; A legal chatbot ;; A strong model grading outputs with a rubric ;; A benchmark ;; A deployment tool => 1 => Automated rubric-based evaluation.
+MCQ: Which is a good production signal to monitor? ;; Number of colours in the UI ;; p95 latency and cost per request ;; Font size ;; Commit count => 1 => Speed and cost matter in production.
+MCQ: Treating prompts as code means… ;; Writing prompts in Python only ;; Versioning them in Git and testing before release ;; Hiding them ;; Never changing them => 1 => Version, test and log prompt versions.
+
+## 20 | target | Quiz | Module 20
+MCQ: The best defence for an agent that reads emails and can send replies? ;; Trust email content ;; Treat content as data and require approval before sending ;; Raise temperature ;; Give it admin rights => 1 => Untrusted input plus least privilege and approvals.
+MCQ: PII masking means… ;; Encrypting the model ;; Replacing personal details with placeholders before processing ;; Deleting the app ;; Hiding the UI => 1 => Send only what is needed.
+MCQ: The EU AI Act is… ;; A tax law ;; A risk-based AI regulation ;; A cloud service ;; A model => 1 => Obligations scale with risk.
+MCQ: Telling users they are talking to AI supports… ;; Speed ;; Transparency ;; Lower cost ;; Fine-tuning => 1 => Disclosure builds trust.
